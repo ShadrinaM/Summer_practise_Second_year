@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Database</title>
+    <title>Happy House</title>
+    <link rel="icon" type="image/png" href="logooo.bmp">
     <style>
         /*
     
-    rgb(5, 12, 51)     тёмно синий
-    rgb(113, 163, 229)
-    rgb(57, 200, 231)    голубой
-    rgb(137, 208, 202)    мятный
-    rgb(110, 173, 211)    фон
+        rgb(5, 12, 51)     тёмно синий
+        rgb(113, 163, 229)
+        rgb(57, 200, 231)    голубой
+        rgb(137, 208, 202)    мятный
+        rgb(110, 173, 211)    фон
 
-    */
+        */
 
         * {
             color: rgb(253, 253, 253);
@@ -28,15 +29,15 @@
         }
 
         header {
-            background-color: rgb(110, 173, 211);
+            background-color: rgb(148, 210, 229);
             display: flex;
             align-items: center;
             justify-content: flex-start;
             padding: 20px;
-            border: 5px solid rgb(17, 51, 81);
+            border-bottom: 2px solid rgb(17, 51, 81);
         }
 
-        header img {
+        #logo {
             width: 80px;
             height: 80px;
             margin-right: 10px;
@@ -44,6 +45,7 @@
 
         header h1 {
             margin: 0;
+            margin-left: 5px;
             color: rgb(17, 51, 81);
         }
 
@@ -64,9 +66,8 @@
 
         input {
             background-color: rgb(254, 254, 254);
-            border: none;
             font-weight: bold;
-            color: rgb(253, 253, 253);
+            color: rgb(5, 12, 51);
             padding: 10px;
             width: 500px;
             border-radius: 5px;
@@ -96,19 +97,21 @@
         .form {
             display: flex;
             flex-direction: column;
-            max-width: 550px;
+            max-width: 554px;
             margin: 0 20px;
-            background-color: rgb(110, 173, 211);
+            background-color: rgb(148, 210, 229);
             border-radius: 5px;
         }
 
-        /* Обновляем стили для всех форм */
         form {
             background-color: transparent;
             padding: 0;
+            border: 1px solid rgb(17, 51, 81);
         }
 
-        .label_name {}
+        .label_name {
+            color: #00243b;
+        }
 
         .hidden {
             display: none;
@@ -123,19 +126,88 @@
         .forms-container {
             margin-top: 20px;
         }
+
+
+
+        button[type="submit"] {
+            width: 524px;
+            margin: 15px;
+        }
+
+
+        #modeSelect {
+            margin-left: auto;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        body.dark-theme {
+            background-color: rgb(31, 31, 31);
+            color: rgb(238, 235, 211);
+        }
+
+        body.dark-theme header {
+            background-color: rgb(51, 51, 51);
+            border-bottom: 2px solid rgb(227, 73, 31);
+        }
+
+        body.dark-theme header h1 {
+            color: rgb(238, 235, 211);
+        }
+
+        body.dark-theme select,
+        body.dark-theme button {
+            background-color: rgb(63, 63, 63);
+            color: rgb(238, 235, 211);
+        }
+
+        body.dark-theme .form button[type="submit"] {
+            background-color: rgb(31, 31, 31);
+        }
+
+        body.dark-theme input {
+            background-color: rgb(31, 31, 31);
+            color: rgb(238, 235, 211);
+        }
+
+        body.dark-theme label {
+            color: rgb(238, 235, 211);
+        }
+
+        body.dark-theme .label_name {
+            color: rgb(238, 235, 211);
+        }
+
+        body.dark-theme form {
+            background-color: rgb(63, 63, 63);
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <img src="logoo.bmp" alt="Logo">
-        <h1>Real Estate Database</h1>
+        <img id="logo" src="logooo.bmp" alt="Logo">
+        <h1>База данных фирмы "Happy House"</h1>
+        <select id="modeSelect" style="font-size: 20px; height: 65px;">
+            <option value="addRecords">ADD RECORDS</option>
+            <option value="dbQueries">DB QUERIES</option>
+        </select>
+        <button id="toggleThemeBtn" style="font-size: 40px;">☼</button>
     </header>
 
-    <select id="modeSelect">
-        <option value="addRecords">Add Records</option>
-        <option value="dbQueries">DB Queries</option>
-    </select>
+
 
     <div id="addRecords" class="content">
         <div class="form-buttons">
@@ -315,6 +387,16 @@
             document.getElementById('addApartmentForm').classList.add('hidden');
             document.getElementById('addBuyerForm').classList.add('hidden');
             document.getElementById('addDealForm').classList.toggle('hidden');
+        });
+
+        document.getElementById('toggleThemeBtn').addEventListener('click', function () {
+            document.body.classList.toggle('dark-theme');
+
+            if (document.body.classList.contains('dark-theme')) {
+                document.getElementById("logo").src = "logooo_dark.bmp";
+            } else {
+                document.getElementById("logo").src = "logooo.bmp";
+            }
         });
     </script>
 </body>
