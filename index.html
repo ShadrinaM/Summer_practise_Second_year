@@ -6,149 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Database</title>
     <style>
-        .hidden {
-            display: none;
-        }
-
-
-
-
         /*
+    
+    rgb(5, 12, 51)     тёмно синий
+    rgb(113, 163, 229)
+    rgb(57, 200, 231)    голубой
+    rgb(137, 208, 202)    мятный
+    rgb(110, 173, 211)    фон
+
+    */
+
         * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            color: rgb(253, 253, 253);
         }
 
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 20px;
-            background-color: #f8f9fa;
-            text-align: center;
-        }
-
-        header img {
-            width: 100px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        header h1 {
-            font-size: 24px;
-            color: #343a40;
-        }
-
-        label {
-            display: block;
-            margin: 10px 0;
-            font-size: 18px;
-            color: #343a40;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 10px;
-            font-size: 18px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-
-        button:hover {
-            background-color: #0069d9;
-        }
-
-        form {
-            margin-bottom: 20px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        #modeSelect {
-            margin-bottom: 20px;
-        }
-
-        .content {
-            padding: 20px;
-        }
-
-
-
-
-*/
-
-
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1c1c1c;
-            color: #fff;
+            background-color: rgb(253, 253, 253);
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #003049;
+            background-color: rgb(110, 173, 211);
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            /* changed from center to flex-start */
             padding: 20px;
+            border: 5px solid rgb(17, 51, 81);
         }
 
         header img {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             margin-right: 10px;
         }
 
         header h1 {
             margin: 0;
+            color: rgb(17, 51, 81);
         }
 
         select,
-        input,
         button {
-            background-color: #003049;
+            background-color: rgb(5, 12, 51);
             border: none;
-            color: #fff;
+            font-weight: bold;
+            color: rgb(253, 253, 253);
             padding: 10px;
             margin: 10px;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 18px;
         }
 
-        select,
+
+
         input {
-            background-color: #004c6d;
-            /* changed from #003049 to #004c6d */
+            background-color: rgb(254, 254, 254);
             border: none;
-            color: #fff;
+            font-weight: bold;
+            color: rgb(253, 253, 253);
             padding: 10px;
-            margin: 10px;
+            width: 500px;
             border-radius: 5px;
             cursor: pointer;
         }
@@ -166,74 +86,192 @@
         label {
             display: block;
             margin: 10px;
+            margin-left: 15px;
+            margin-right: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(0, 36, 59);
         }
 
-        form {
-            background-color: #003049;
-            padding: 20px;
+        .form {
+            display: flex;
+            flex-direction: column;
+            max-width: 550px;
+            margin: 0 20px;
+            background-color: rgb(110, 173, 211);
             border-radius: 5px;
         }
 
+        /* Обновляем стили для всех форм */
+        form {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .label_name {}
+
         .hidden {
             display: none;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .forms-container {
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <img src="logo.png" alt="Logo">
+        <img src="logoo.bmp" alt="Logo">
         <h1>Real Estate Database</h1>
     </header>
 
-    <label for="modeSelect">Choose mode:</label>
     <select id="modeSelect">
         <option value="addRecords">Add Records</option>
         <option value="dbQueries">DB Queries</option>
     </select>
 
     <div id="addRecords" class="content">
-        <button id="toggleRealtorFormBtn">Add Realtor</button>
-        <form id="addRealtorForm" class="hidden">
-            <label>Full Name: <input type="text" name="fullName" required></label>
-            <label>Commission Percentage: <input type="number" step="0.01" name="commissionPercentage" required></label>
-            <label>Phone: <input type="tel" name="phone" pattern="^\+[0-9]{11,14}$" required></label>
-            <label>Email: <input type="email" name="email" required></label>
-            <button type="submit">Add Realtor</button>
-        </form>
+        <div class="form-buttons">
+            <button id="toggleRealtorFormBtn">Add Realtor</button>
+            <button id="toggleApartmentFormBtn">Add Apartment</button>
+            <button id="toggleBuyerFormBtn">Add Buyer</button>
+            <button id="toggleDealFormBtn">Add Deal</button>
+        </div>
 
-        <button id="toggleApartmentFormBtn">Add Apartment</button>
-        <form id="addApartmentForm" class="hidden">
-            <label>Street: <input type="text" name="street"></label>
-            <label>House Number: <input type="number" name="houseNumber"></label>
-            <label>Apartment Number: <input type="number" name="apartmentNumber"></label>
-            <label>Floor: <input type="number" name="floor"></label>
-            <label>Area: <input type="number" name="area"></label>
-            <label>Rooms Count: <input type="number" name="roomsCount"></label>
-            <label>Price: <input type="number" name="price"></label>
-            <button type="submit">Add Apartment</button>
-        </form>
+        <div class="forms-container">
+            <form id="addRealtorForm" class="form hidden">
+                <label>
+                    <div class="label_name">Full Name:</div>
+                    <br>
+                    <input type="text" name="fullName" required>
+                </label>
+                <label>
+                    <div class="label_name">Commission Percentage:</div>
+                    <br>
+                    <input type="number" step="0.01" name="commissionPercentage" required>
+                </label>
+                <label>
+                    <div class="label_name">Phone:</div>
+                    <br>
+                    <input type="tel" name="phone" pattern="^\+[0-9]{11,14}$" required>
+                </label>
+                <label>
+                    <div class="label_name">Email:</div>
+                    <br>
+                    <input type="email" name="email" required>
+                </label>
+                <button type="submit">Add Realtor</button>
+            </form>
 
-        <button id="toggleBuyerFormBtn">Add Buyer</button>
-        <form id="addBuyerForm" class="hidden">
-            <label>Full Name: <input type="text" name="fullName"></label>
-            <label>Budget: <input type="number" name="budget"></label>
-            <label>Preferences: <input type="text" name="preferences"></label>
-            <label>Phone: <input type="tel" name="phone" pattern="^\+[0-9]{11,14}$"></label>
-            <label>Email: <input type="email" name="email"></label>
-            <label>Passport Data: <input type="text" name="passportData"></label>
-            <button type="submit">Add Buyer</button>
-        </form>
+            <form id="addApartmentForm" class="form hidden">
+                <label>
+                    <div class="label_name">Street:</div>
+                    <br>
+                    <input type="text" name="street">
+                </label>
+                <label>
+                    <div class="label_name">House Number:</div>
+                    <br>
+                    <input type="number" name="houseNumber">
+                </label>
+                <label>
+                    <div class="label_name">Apartment Number:</div>
+                    <br>
+                    <input type="number" name="apartmentNumber">
+                </label>
+                <label>
+                    <div class="label_name">Floor:</div>
+                    <br>
+                    <input type="number" name="floor">
+                </label>
+                <label>
+                    <div class="label_name">Area:</div>
+                    <br>
+                    <input type="number" name="area">
+                </label>
+                <label>
+                    <div class="label_name">Rooms Count:</div>
+                    <br>
+                    <input type="number" name="roomsCount">
+                </label>
+                <label>
+                    <div class="label_name">Price:</div>
+                    <br>
+                    <input type="number" name="price">
+                </label>
+                <button type="submit">Add Apartment</button>
+            </form>
 
-        <button id="toggleDealFormBtn">Add Deal</button>
-        <form id="addDealForm" class="hidden">
-            <label>Deal Date: <input type="date" name="dealDate"></label>
-            <label>Deal Price: <input type="number" name="dealPrice"></label>
-            <label>Apartment ID: <input type="number" name="apartmentId"></label>
-            <label>Buyer ID: <input type="number" name="buyerId"></label>
-            <label>Realtor ID: <input type="number" name="realtorId"></label>
-            <button type="submit">Add Deal</button>
-        </form>
+            <form id="addBuyerForm" class="form hidden">
+                <label>
+                    <div class="label_name">Full Name:</div>
+                    <br>
+                    <input type="text" name="fullName">
+                </label>
+                <label>
+                    <div class="label_name">Budget:</div>
+                    <br>
+                    <input type="number" name="budget">
+                </label>
+                <label>
+                    <div class="label_name">Preferences:</div>
+                    <br>
+                    <input type="text" name="preferences">
+                </label>
+                <label>
+                    <div class="label_name">Phone:</div>
+                    <br>
+                    <input type="tel" name="phone" pattern="^\+[0-9]{11,14}$">
+                </label>
+                <label>
+                    <div class="label_name">Email:</div>
+                    <br>
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    <div class="label_name">Passport Data:</div>
+                    <br>
+                    <input type="text" name="passportData">
+                </label>
+                <button type="submit">Add Buyer</button>
+            </form>
+
+            <form id="addDealForm" class="form hidden">
+                <label>
+                    <div class="label_name">Deal Date:</div>
+                    <br>
+                    <input type="date" name="dealDate">
+                </label>
+                <label>
+                    <div class="label_name">Deal Price:</div>
+                    <br>
+                    <input type="number" name="dealPrice">
+                </label>
+                <label>
+                    <div class="label_name">Apartment ID:</div>
+                    <br>
+                    <input type="number" name="apartmentId">
+                </label>
+                <label>
+                    <div class="label_name">Buyer ID:</div>
+                    <br>
+                    <input type="number" name="buyerId">
+                </label>
+                <label>
+                    <div class="label_name">Realtor ID:</div>
+                    <br>
+                    <input type="number" name="realtorId">
+                </label>
+                <button type="submit">Add Deal</button>
+            </form>
+        </div>
     </div>
 
     <div id="dbQueries" class="content hidden">
