@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Database</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+
+
+
+        /*
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        header img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #343a40;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+            color: #343a40;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #0069d9;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #modeSelect {
+            margin-bottom: 20px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+
+
+
+*/
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #003049;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            /* changed from center to flex-start */
+            padding: 20px;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        select,
+        input,
+        button {
+            background-color: #003049;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        select,
+        input {
+            background-color: #004c6d;
+            /* changed from #003049 to #004c6d */
+            border: none;
+            color: #fff;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        select:focus,
+        input:focus,
+        button:focus {
+            outline: none;
+        }
+
+        button:hover {
+            background-color: #00243b;
+        }
+
+        label {
+            display: block;
+            margin: 10px;
+        }
+
+        form {
+            background-color: #003049;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <h1>Real Estate Database</h1>
+    </header>
+
+    <label for="modeSelect">Choose mode:</label>
+    <select id="modeSelect">
+        <option value="addRecords">Add Records</option>
+        <option value="dbQueries">DB Queries</option>
+    </select>
+
+    <div id="addRecords" class="content">
+        <button id="toggleRealtorFormBtn">Add Realtor</button>
+        <form id="addRealtorForm" class="hidden">
+            <label>Full Name: <input type="text" name="fullName" required></label>
+            <label>Commission Percentage: <input type="number" step="0.01" name="commissionPercentage" required></label>
+            <label>Phone: <input type="tel" name="phone" pattern="^\+[0-9]{11,14}$" required></label>
+            <label>Email: <input type="email" name="email" required></label>
+            <button type="submit">Add Realtor</button>
+        </form>
+
+        <button id="toggleApartmentFormBtn">Add Apartment</button>
+        <form id="addApartmentForm" class="hidden">
+            <label>Street: <input type="text" name="street"></label>
+            <label>House Number: <input type="number" name="houseNumber"></label>
+            <label>Apartment Number: <input type="number" name="apartmentNumber"></label>
+            <label>Floor: <input type="number" name="floor"></label>
+            <label>Area: <input type="number" name="area"></label>
+            <label>Rooms Count: <input type="number" name="roomsCount"></label>
+            <label>Price: <input type="number" name="price"></label>
+            <button type="submit">Add Apartment</button>
+        </form>
+
+        <button id="toggleBuyerFormBtn">Add Buyer</button>
+        <form id="addBuyerForm" class="hidden">
+            <label>Full Name: <input type="text" name="fullName"></label>
+            <label>Budget: <input type="number" name="budget"></label>
+            <label>Preferences: <input type="text" name="preferences"></label>
+            <label>Phone: <input type="tel" name="phone" pattern="^\+[0-9]{11,14}$"></label>
+            <label>Email: <input type="email" name="email"></label>
+            <label>Passport Data: <input type="text" name="passportData"></label>
+            <button type="submit">Add Buyer</button>
+        </form>
+
+        <button id="toggleDealFormBtn">Add Deal</button>
+        <form id="addDealForm" class="hidden">
+            <label>Deal Date: <input type="date" name="dealDate"></label>
+            <label>Deal Price: <input type="number" name="dealPrice"></label>
+            <label>Apartment ID: <input type="number" name="apartmentId"></label>
+            <label>Buyer ID: <input type="number" name="buyerId"></label>
+            <label>Realtor ID: <input type="number" name="realtorId"></label>
+            <button type="submit">Add Deal</button>
+        </form>
+    </div>
+
+    <div id="dbQueries" class="content hidden">
+        <h2>DB Queries</h2>
+        <!-- ... формы для запросов к БД по шаблону ... -->
+    </div>
+
+    <script>
+        document.getElementById('modeSelect').addEventListener('change', function () {
+            var selectedMode = this.value;
+            var addRecordsDiv = document.getElementById('addRecords');
+            var dbQueriesDiv = document.getElementById('dbQueries');
+
+            addRecordsDiv.classList.toggle('hidden', selectedMode !== 'addRecords');
+            dbQueriesDiv.classList.toggle('hidden', selectedMode !== 'dbQueries');
+        });
+
+        document.getElementById('toggleRealtorFormBtn').addEventListener('click', function () {
+            document.getElementById('addRealtorForm').classList.toggle('hidden');
+            document.getElementById('addApartmentForm').classList.add('hidden');
+            document.getElementById('addBuyerForm').classList.add('hidden');
+            document.getElementById('addDealForm').classList.add('hidden');
+        });
+
+        document.getElementById('toggleApartmentFormBtn').addEventListener('click', function () {
+            document.getElementById('addRealtorForm').classList.add('hidden');
+            document.getElementById('addApartmentForm').classList.toggle('hidden');
+            document.getElementById('addBuyerForm').classList.add('hidden');
+            document.getElementById('addDealForm').classList.add('hidden');
+        });
+
+        document.getElementById('toggleBuyerFormBtn').addEventListener('click', function () {
+            document.getElementById('addRealtorForm').classList.add('hidden');
+            document.getElementById('addApartmentForm').classList.add('hidden');
+            document.getElementById('addBuyerForm').classList.toggle('hidden');
+            document.getElementById('addDealForm').classList.add('hidden');
+        });
+
+        document.getElementById('toggleDealFormBtn').addEventListener('click', function () {
+            document.getElementById('addRealtorForm').classList.add('hidden');
+            document.getElementById('addApartmentForm').classList.add('hidden');
+            document.getElementById('addBuyerForm').classList.add('hidden');
+            document.getElementById('addDealForm').classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
