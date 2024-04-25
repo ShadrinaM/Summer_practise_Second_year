@@ -46,7 +46,8 @@
                 </label>
                 <button type="submit" name="add_realtor_form">Добавить риэлтора</button>
             </form>
-            <form id="addApartmentForm" class="form hidden"> <label>
+            <form id="addApartmentForm" class="form hidden" action="index.php" method="POST"> 
+                <label>
                     <div class="label_name">Название улицы:</div> <br>
                     <input type="text" name="street" placeholder="Пушкина">
                 </label>
@@ -75,7 +76,8 @@
                     <input type="number" name="price" placeholder="3000000">
                 </label> <button type="submit" name="add_apartment_form">Добавить квартиру</button>
             </form>
-            <form id="addBuyerForm" class="form hidden"> <label>
+            <form id="addBuyerForm" class="form hidden" action="index.php" method="POST"> 
+                <label>
                     <div class="label_name">ФИО:</div> <br>
                     <input type="text" name="fullNameBuyer" placeholder="Петров Петр Петрович">
                 </label>
@@ -101,7 +103,8 @@
                 </label>
                 <button type="submit" name="add_buyer_form">Добавить покупателя</button>
             </form>
-            <form id="addDealForm" class="form hidden"> <label>
+            <form id="addDealForm" class="form hidden" action="index.php" method="POST"> 
+                <label>
                     <div class="label\_name">Дата сделки:</div> <br>
                     <input type="date" name="dealDate">
                 </label>
