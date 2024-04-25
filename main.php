@@ -158,9 +158,6 @@
                 <button type="submit">Add Deal</button>
             </form>
         </div>
-        <div class="bottom-left-text">
-            <?php echo($sms) ?>
-        </div>
     </div>
 
     <div id="dbQueries" class="content hidden">
