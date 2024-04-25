@@ -2,8 +2,9 @@
 header('Content-Type: text/html; charset=UTF-8');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $sms='';
     if (!empty($_GET['save'])) {
-        print ('Спасибо, результаты сохранены.');
+        $sms='Спасибо, результаты сохранены.';
     }
     include ('main.php');
     exit();
@@ -11,24 +12,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 $errors = FALSE;
 if (empty($_POST['fullNameRealtor']) || !preg_match('/^[а-яА-ЯёЁa-zA-Z\s-]{1,150}$/u', $_POST['fullNameRealtor'])) {
-    print ('Заполните имя.<br/>');
     $errors = TRUE;
 }
 if (empty($_POST['commissionPercentage']) || !preg_match('/^[0-9]+(\.[0-9]{1,2})?$/', $_POST['commissionPercentage'])) {
-    print ('Заполните процент вознаграждения.<br/>');
     $errors = TRUE;
 }
 if (empty($_POST['phoneRealtor']) || !preg_match('/^\+[0-9]{11}$/', $_POST['phoneRealtor'])) {
-    print ('Заполните телефон.<br/>');
     $errors = TRUE;
 }
 
 if (empty($_POST['emailRealtor']) || !preg_match('/^([a-z0-9_-]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,5})$/i', $_POST['emailRealtor'])) {
-    print ('Заполните почту.<br/>');
     $errors = TRUE;
 }
 
-include ('../ShadrinaMM_Web2//Secret.php');
+include ('../ShadrinaMM_Web2/Secret.php');
 $user = userr;
 $pass = passs;
 $db = new PDO(
