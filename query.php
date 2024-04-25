@@ -11,7 +11,7 @@ $db = new PDO(
     [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 );
 
-$query = "SELECT * FROM mytable";
+$query = "SELECT * FROM Realtors";
 $stmt = $db->query($query);
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
