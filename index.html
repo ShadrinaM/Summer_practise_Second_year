@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy House</title>
     <link rel="icon" type="image/png" href="logooo.bmp">
     <style>
-        * {
-            color: rgb(253, 253, 253);
-        }
-
+        /*шапка и общее*/
         body {
             font-family: Arial, sans-serif;
             background-color: rgb(253, 253, 253);
             margin: 0;
             padding: 0;
+            color: rgb(253, 253, 253);
         }
 
         header {
@@ -33,12 +30,15 @@
             margin-right: 10px;
         }
 
-        header h1 {
+        .header_title {
             margin: 0;
             margin-left: 5px;
             color: rgb(17, 51, 81);
+            font-size: 40px;
+            font-weight: bold;
         }
 
+        /*вкладка добавления записей*/
         select,
         button {
             background-color: rgb(5, 12, 51);
@@ -116,16 +116,32 @@
             margin-top: 20px;
         }
 
-
-
         button[type="submit"] {
             width: 524px;
             margin: 15px;
         }
 
-
         #modeSelect {
             margin-left: auto;
+        }
+
+        .query_name {
+            color: #00243b;
+            font-weight: bold;
+            font-size: 18px;
+            padding-left: 10px;
+        }
+
+        .title_queries {
+            color: rgb(253, 253, 253);
+            font-weight: bold;
+            font-size: 30px;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            background-color: rgb(5, 12, 51);
+
         }
 
 
@@ -137,11 +153,7 @@
 
 
 
-
-
-
-
-
+        /*тёмная тема*/
         body.dark-theme {
             background-color: rgb(31, 31, 31);
             color: rgb(238, 235, 211);
@@ -152,7 +164,7 @@
             border-bottom: 2px solid rgb(227, 73, 31);
         }
 
-        body.dark-theme header h1 {
+        body.dark-theme .header_title {
             color: rgb(238, 235, 211);
         }
 
@@ -182,22 +194,57 @@
         body.dark-theme form {
             background-color: rgb(63, 63, 63);
         }
+
+        body.dark-theme .Query_name {
+            color: rgb(238, 235, 211);
+        }
+
+        body.dark-theme .title_queries {
+            color: rgb(227, 73, 31);
+        }
+
+
+
+        /*вкладка запросов*/
+        .queries-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .queryDescriptions {
+            width: 45%;
+            flex: 1;
+            padding-right: 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 125px);
+        }
+
+        .output-container {
+            width: 55%;
+            background-color: rgb(5, 12, 51);
+        }
+
+
+        .Query {
+            margin: 10px;
+            background-color: rgb(148, 210, 229);
+            border-radius: 5px;
+            border: 1px solid rgb(17, 51, 81);
+        }
     </style>
 </head>
 
 <body>
     <header>
         <img id="logo" src="logooo.bmp" alt="Logo">
-        <h1>База данных фирмы "Happy House"</h1>
+        <div class="header_title">База данных фирмы "Happy House"</div>
         <select id="modeSelect" style="font-size: 20px; height: 65px;">
             <option value="addRecords">ADD RECORDS</option>
             <option value="dbQueries">DB QUERIES</option>
         </select>
         <button id="toggleThemeBtn" style="font-size: 40px;">☼</button>
     </header>
-
-
-
     <div id="addRecords" class="content">
         <div class="form-buttons">
             <button id="toggleRealtorFormBtn">Add Realtor</button>
@@ -205,7 +252,6 @@
             <button id="toggleBuyerFormBtn">Add Buyer</button>
             <button id="toggleDealFormBtn">Add Deal</button>
         </div>
-
         <div class="forms-container">
             <form id="addRealtorForm" class="form hidden">
                 <label>
@@ -304,8 +350,6 @@
                 <button type="submit">Add Buyer</button>
             </form>
 
-
-            
             <form id="addDealForm" class="form hidden">
                 <label>
                     <div class="label_name">Deal Date:</div>
@@ -338,11 +382,100 @@
     </div>
 
     <div id="dbQueries" class="content hidden">
-        <h2>DB Queries</h2>
-        <!-- ... формы для запросов к БД по шаблону ... -->
+        <div class="queries-container">
+            <div class="queryDescriptions">
+                <div class="title_queries">Шаблонные запросы к базе данных:</div>
+                <div class="Query">
+                    <div class="query_name">
+                        (1) Выбирает из таблицы Apartments (КВАРТИРЫ) информацию от 3-комнатных квартирах, расположенных
+                        на улице "Садовая"
+                    </div>
+                    <button onclick="executeQuery(1)"> Выполнить запрос 1</button>
+                </div>
+                <div class="Query">
+                    <div class="query_name">
+                        (2)Выбирает из таблицы Realtors (РИЭЛТОРЫ) информацию о риэлторах, для которых фамилия
+                        начинается
+                        с
+                        буквы "И" и
+                        процент вознаграждения больше 10
+                    </div>
+                    <button onclick="executeQuery(2)"> Выполнить запрос 2</button>
+                </div>
+                <div class="Query">
+                    <div class="query_name">
+                        (3) Выбирает из табоицы Apartments (КВАРТИРЫ) информацию об 1-комнатных квартирах, цена на
+                        которые
+                        находится в
+                        диапазоне от 900000 до 1000000
+                    </div>
+                    <button onclick="executeQuery(3)"> Выполнить запрос 3</button>
+                </div>
+                <div class="Query">
+                    <div class="query_name">
+                        (4) Выбирает из таблицы Apartments (КВАРТИРЫ) информацию о квартирах с некоторым количеством
+                        комнат.
+                        Конкретное
+                        количество комнат вводится при выполнении запроса.
+                    </div>
+                    <label>
+                        Число комнат:
+                        <input type="number" id="roomsCountInput">
+                    </label>
+                    <button onclick="executeQuery(4)">Выполнить запрос 4</button>
+                </div>
+                <div class="Query">
+                    <div class="query_name">
+                        (5) Выбирает из таблицы Apartments (КВАРТИРЫ) информацию обо всех 2-комнатных квартирах, площадь
+                        которых есть значение из некоторого диапазона. Нижняя и верхняя границы диапазона задаются при
+                        выполнении запроса.
+                    </div>
+                    <label>
+                        Минимальная площадь:
+                        <input type="number" id="minAreaInput">
+                    </label>
+                    <label>
+                        Максимальная площадь:
+                        <input type="number" id="maxAreaInput">
+                    </label>
+                    <button onclick="executeQuery(5)"> Выполнить запрос 5</button>
+                </div>
+                <div class="Query">
+                    <div class="query_name">
+                        (6) Вычисляет для каждой оформленной сделки размер коммиссионного вознаграждения риэлтора.
+                        Включает поля ФИО риэлтора, Дата сделки, Цена квартиры, Процент вознаграждения, Комиссионные.
+                        Значения в поле Комиссионные вычисляются по формуле: Комиссионные = Цена квартиры * Процент
+                        вознаграждения
+                    </div>
+                    <button onclick="executeQuery(6)"> Выполнить запрос 6</button>
+                </div>
+                <div class="Query">
+                    <div class="query_name">
+                        (7) Выполняет группировку по полю Количество комнат. Для каждой группы вычисляет среднее
+                        значение по полю Площадь квартиры.
+                    </div>
+                    <button onclick="executeQuery(7)"> Выполнить запрос 7</button>
+                </div>
+                <div class="Query">
+                    <div class="query_name">
+                        (8) Выполняет группировку по полю Площадь квартиры. Для каждой группы вычисляет наибольшее и
+                        наименьшее значение по полю Количество комнат.
+                    </div>
+                    <button onclick="executeQuery(8)"> Выполнить запрос 8</button>
+                </div>
+            </div>
+            <div class="output-container">
+                <div class="output" id="queryOutput" style="color: #00243b;">
+                    HiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiiHiHiHiHiHiHiHiHiHiHiHiHiHiHi
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <script>
+        /*открытие полей добавления записей в бд*/
         document.getElementById('modeSelect').addEventListener('change', function () {
             var selectedMode = this.value;
             var addRecordsDiv = document.getElementById('addRecords');
@@ -380,6 +513,7 @@
             document.getElementById('addDealForm').classList.toggle('hidden');
         });
 
+        /*замена лого и включение тёмной темы*/
         document.getElementById('toggleThemeBtn').addEventListener('click', function () {
             document.body.classList.toggle('dark-theme');
 
