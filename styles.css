@@ -140,7 +140,9 @@ button[type="submit"] {
 }
 
 
-
+.output-container {
+    background-color: #00243b;
+}
 
 
 
@@ -167,6 +169,7 @@ body.dark-theme select,
 body.dark-theme button {
     background-color: rgb(63, 63, 63);
     color: rgb(238, 235, 211);
+    border: 2px solid rgb(227, 73, 31);
 }
 
 body.dark-theme .form button[type="submit"] {
@@ -209,6 +212,12 @@ body.dark-theme .button_select {
     background-color: rgb(31, 31, 31);
     border: 2px solid rgb(227, 73, 31);
 }
+
+body.dark-theme .output-container {
+    background-color: rgb(31, 31, 31);
+}
+
+
 
 /*вкладка запросов*/
 .queries-container {
