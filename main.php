@@ -60,37 +60,37 @@
                 <label>
                     <div class="label_name">Street:</div>
                     <br>
-                    <input type="text" name="street">
+                    <input type="text" name="street" placeholder="Улица">
                 </label>
                 <label>
                     <div class="label_name">House Number:</div>
                     <br>
-                    <input type="number" name="houseNumber">
+                    <input type="number" name="houseNumber" placeholder="Номер дома">
                 </label>
                 <label>
                     <div class="label_name">Apartment Number:</div>
                     <br>
-                    <input type="number" name="apartmentNumber">
+                    <input type="number" name="apartmentNumber" placeholder="Номер квартиры">
                 </label>
                 <label>
                     <div class="label_name">Floor:</div>
                     <br>
-                    <input type="number" name="floor">
+                    <input type="number" name="floor" placeholder="Этаж">
                 </label>
                 <label>
                     <div class="label_name">Area:</div>
                     <br>
-                    <input type="number" name="area">
+                    <input type="number" name="area" placeholder="Площадь квартиры">
                 </label>
                 <label>
                     <div class="label_name">Rooms Count:</div>
                     <br>
-                    <input type="number" name="roomsCount">
+                    <input type="number" name="roomsCount" placeholder="Количество комнат">
                 </label>
                 <label>
                     <div class="label_name">Price:</div>
                     <br>
-                    <input type="number" name="price">
+                    <input type="number" name="price" placeholder="Цена квартиры">
                 </label>
                 <button type="submit" name="add_apartment_form">Add Apartment</button>
             </form>
@@ -99,32 +99,32 @@
                 <label>
                     <div class="label_name">Full Name:</div>
                     <br>
-                    <input type="text" name="fullName">
+                    <input type="text" name="fullNameBuyer" placeholder="Фамилия Имя Отчество">
                 </label>
                 <label>
                     <div class="label_name">Budget:</div>
                     <br>
-                    <input type="number" name="budget">
+                    <input type="number" name="budget" placeholder="Бюджет">
                 </label>
                 <label>
                     <div class="label_name">Preferences:</div>
                     <br>
-                    <input type="text" name="preferences">
+                    <input type="text" name="preferences" placeholder="Пожелания">
                 </label>
                 <label>
                     <div class="label_name">Phone:</div>
                     <br>
-                    <input type="tel" name="phone" pattern="^\+[0-9]{11,14}$">
+                    <input type="tel" name="phoneBuyer" pattern="^\+[0-9]{11,14}$" placeholder="+7(___)-__-__-___">
                 </label>
                 <label>
                     <div class="label_name">Email:</div>
                     <br>
-                    <input type="email" name="email">
+                    <input type="email" name="emailBuyer" placeholder="Электронная почта">
                 </label>
                 <label>
                     <div class="label_name">Passport Data:</div>
                     <br>
-                    <input type="text" name="passportData">
+                    <input type="text" name="passportData" placeholder="Паспортные данные">
                 </label>
                 <button type="submit" name="add_buyer_form">Add Buyer</button>
             </form>
@@ -133,27 +133,27 @@
                 <label>
                     <div class="label_name">Deal Date:</div>
                     <br>
-                    <input type="date" name="dealDate">
+                    <input type="date" name="dealDate" placeholder="Дата сделки">
                 </label>
                 <label>
                     <div class="label_name">Deal Price:</div>
                     <br>
-                    <input type="number" name="dealPrice">
+                    <input type="number" name="dealPrice" placeholder="Цена сделки">
                 </label>
                 <label>
                     <div class="label_name">Apartment ID:</div>
                     <br>
-                    <input type="number" name="apartmentId">
+                    <input type="number" name="apartmentId" placeholder="ID Квартиры">
                 </label>
                 <label>
                     <div class="label_name">Buyer ID:</div>
                     <br>
-                    <input type="number" name="buyerId">
+                    <input type="number" name="buyerId" placeholder="ID Покупателя">
                 </label>
                 <label>
                     <div class="label_name">Realtor ID:</div>
                     <br>
-                    <input type="number" name="realtorId">
+                    <input type="number" name="realtorId" placeholder="ID Риэлтора">
                 </label>
                 <button type="submit" name="add_deal_form">Add Deal</button>
             </form>
