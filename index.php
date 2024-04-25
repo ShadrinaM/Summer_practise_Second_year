@@ -156,7 +156,57 @@ if (isset($_POST['add_realtor_form'])) {
     $id = $db->lastInsertId();
 } elseif (isset($_POST['add_deal_form'])) {
     // Обработка формы Add Deal
-    // ...
+    $dealDate = $_POST['dealDate'];
+    $dealPrice = $_POST['dealPrice'];
+    $apartmentId = $_POST['apartmentId'];
+    $buyerId = $_POST['buyerId'];
+    $realtorId = $_POST['realtorId'];
+
+    // Проверяем, существуют ли покупатель, квартира и риэлтор с указанными ID
+    $checkBuyerQuery = "SELECT * FROM Buyers WHERE Buyer_ID = :buyerId";
+    $checkApartmentQuery = "SELECT * FROM Apartments WHERE Apartment_ID = :apartmentId";
+    $checkRealtorQuery = "SELECT * FROM Realtors WHERE Realtor_ID = :realtorId";
+
+    $checkBuyerStmt = $db->prepare($checkBuyerQuery);
+    $checkApartmentStmt = $db->prepare($checkApartmentQuery);
+    $checkRealtorStmt = $db->prepare($checkRealtorQuery);
+
+    $checkBuyerStmt->bindParam(':buyerId', $buyerId);
+    $checkApartmentStmt->bindParam(':apartmentId', $apartmentId);
+    $checkRealtorStmt->bindParam(':realtorId', $realtorId);
+
+    $checkBuyerStmt->execute();
+    $checkApartmentStmt->execute();
+    $checkRealtorStmt->execute();
+
+    $buyerExists = $checkBuyerStmt->rowCount() > 0;
+    $apartmentExists = $checkApartmentStmt->rowCount() > 0;
+    $realtorExists = $checkRealtorStmt->rowCount() > 0;
+
+    if (!$buyerExists || !$apartmentExists || !$realtorExists) {
+        $error = "Один или несколько указанных ID не найдены в базе данных.";
+        header('Location: ?save=0&error=' . urlencode($error));
+        exit();
+    }
+
+    $query = "INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID)
+              VALUES (NULL, :dealDate, :dealPrice, :apartmentId, :buyerId, :realtorId)";
+
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':dealDate', $dealDate);
+    $stmt->bindParam(':dealPrice', $dealPrice);
+    $stmt->bindParam(':apartmentId', $apartmentId);
+    $stmt->bindParam(':buyerId', $buyerId);
+    $stmt->bindParam(':realtorId', $realtorId);
+
+    try {
+        $stmt->execute();
+        $message = "Сделка успешно добавлена!";
+        header('Location: ?save=1&message=' . urlencode($message));
+    } catch (PDOException $e) {
+        $error = "Ошибка при добавлении сделки: " . $e->getMessage();
+        header('Location: ?save=0&error=' . urlencode($error));
+    }
 }
 
 header('Location: ?save=1');

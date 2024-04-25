@@ -143,17 +143,17 @@ CREATE TABLE Deals (
 );
 
 
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Иванов Иван Иванович', 12, '+79991234567', 'ivanov@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Петрова Анна Сергеевна', 10, '+79992223344', 'petrova@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Кузнецов Сергей Александрович', 11, '+79995556677', 'kuznetsov@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Иванов Иван Иванович', 12.01, '+79991234567', 'ivanov@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Петрова Анна Сергеевна', 10.00, '+79992223344', 'petrova@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Кузнецов Сергей Александрович', 11.5, '+79995556677', 'kuznetsov@mail.ru');
 INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Иванова Елена Николаевна', 13, '+79996667788', 'ivanova@mail.ru');
 INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Петрова Мария Владимировна', 9, '+79997778899', 'petrova_m@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Смирнов Алексей Юрьевич', 12, '+79998889900', 'smirnov@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Смирнов Алексей Юрьевич', 12.07, '+79998889900', 'smirnov@mail.ru');
 INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Попова Наталья Васильевна', 14, '+79999990011', 'popova@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Васильев Владимир Алексеевич', 8, '+79990001122', 'vasiliev@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Соколова Ольга Ивановна', 10, '+79991112233', 'sokolova@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Васильев Владимир Алексеевич', 8.01, '+79990001122', 'vasiliev@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Соколова Ольга Ивановна', 10.4, '+79991112233', 'sokolova@mail.ru');
 INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Лебедев Дмитрий Сергеевич', 15, '+79992223344', 'lebedev@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Игнатьев Ян Николаевич', 16, '+79992223344', 'ignat@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Игнатьев Ян Николаевич', 16.66, '+79992223344', 'ignat@mail.ru');
 
 
 INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES ('Садовая', 1, 10, 2, 60, 3, 1200000);
