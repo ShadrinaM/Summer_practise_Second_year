@@ -190,15 +190,25 @@ body.dark-theme form {
     background-color: rgb(63, 63, 63);
 }
 
-body.dark-theme .Query_name {
+body.dark-theme .query_name {
     color: rgb(238, 235, 211);
 }
 
 body.dark-theme .title_queries {
-    color: rgb(227, 73, 31);
+    color: rgb(238, 235, 211);
+    background-color: rgb(63, 63, 63);
+    border: 2px solid rgb(227, 73, 31);
 }
 
+body.dark-theme .Query {
+    color: rgb(238, 235, 211);
+    background-color: rgb(63, 63, 63);
+}
 
+body.dark-theme .button_select {
+    background-color: rgb(31, 31, 31);
+    border: 2px solid rgb(227, 73, 31);
+}
 
 /*вкладка запросов*/
 .queries-container {
