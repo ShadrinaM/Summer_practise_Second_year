@@ -136,6 +136,7 @@ button[type="submit"] {
     border-radius: 5px;
     display: inline-block;
     background-color: rgb(5, 12, 51);
+    border: 2px solid rgb(5, 12, 51);
 
 }
 
@@ -145,7 +146,9 @@ button[type="submit"] {
 }
 
 
-
+body.dark-theme .button_select {
+    border: 2px solid rgb(0, 36, 59);
+}
 
 
 
