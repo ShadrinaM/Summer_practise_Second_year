@@ -19,122 +19,103 @@
             <option value="dbQueries">ЗАПРОСЫ К БД</option>
         </select> <button id="toggleThemeBtn" style="font-size: 40px;">☼</button>
     </header>
-    <div id="addRecords" class="content">
-        <div class="form-buttons"> <button id="toggleRealtorFormBtn">Добавить риэлтора</button>
-            <button id="toggleApartmentFormBtn">Добавить квартиру</button>
-            <button id="toggleBuyerFormBtn">Добавить покупателя</button>
-            <button id="toggleDealFormBtn">Добавить сделку</button>
-        </div>
-        <div class="forms-container">
-            <form id="addRealtorForm" class="form hidden" action="index.php" method="POST"> <label>
-                    <div class="label_name">ФИО:</div> <br>
-                    <input type="text" name="fullNameRealtor" placeholder="Фамилия Имя Отчество" required>
-                </label>
-                <label>
-                    <div class="label_name">Процент вознаграждения:</div> <br>
-                    <input type="number" step="0.01" name="commissionPercentage" placeholder="00.00%" required>
-                </label>
-                <label>
-                    <div class="label_name">Телефон:</div> <br>
-                    <input type="tel" name="phoneRealtor" pattern="^\+[0-9]{11,14}$" placeholder="+7(___)-__-__-___"
-                        required>
-                </label>
-                <label>
-                    <div class="label_name">Электронная почта:</div> <br>
-                    <input type="email" name="emailRealtor" placeholder="email" required>
-                </label>
-                <button type="submit" name="add_realtor_form">Добавить риэлтора</button>
-            </form>
-            <form id="addApartmentForm" class="form hidden">
-                <label>
-                    <div class="label_name">Название улицы:</div> <br>
-                    <input type="text" name="street">
-                </label>
-                <label>
-                    <div class="label_name">Номер дома:</div> <br>
-                    <input type="number" name="houseNumber">
-                </label>
-                <label>
-                    <div class="label_name">Номер квартиры:</div> <br>
-                    <input type="number" name="apartmentNumber">
-                </label>
-                <label>
-                    <div class="label_name">Этаж:</div> <br>
-                    <input type="number" name="floor">
-                </label>
-                <label>
-                    <div class="label_name">Площадь:</div> <br>
-                    <input type="number" name="area">
-                </label>
-                <label>
-                    <div class="label_name">Количество комнат:</div> <br>
-                    <input type="number" name="roomsCount">
-                </label>
-                <label>
-                    <div class="label_name">Цена квартиры:</div> <br>
-                    <input type="number" name="price">
-                </label>
-                <button type="submit" name="add_apartment_form">Добавить квартиру</button>
-            </form>
-
-            <form id="addBuyerForm" class="form hidden">
-                <label>
-                    <div class="label_name">ФИО:</div>
-                    <br>
-                    <input type="text" name="fullNameBuyer" placeholder="Фамилия Имя Отчество">
-                </label>
-                <label>
-                    <div class="label_name">Бюджет:</div>
-                    <br>
-                    <input type="number" name="budget">
-                </label>
-                <label>
-                    <div class="label_name">Пожелания:</div>
-                    <br>
-                    <input type="text" name="preferences">
-                </label>
-                <label>
-                    <div class="label_name">Телефон:</div>
-                    <br>
-                    <input type="tel" name="phoneBuyer" pattern="^\+[0-9]{11,14}$">
-                </label>
-                <label>
-                    <div class="label_name">Email:</div>
-                    <br>
-                    <input type="email" name="emailBuyer">
-                </label>
-                <label>
-                    <div class="label_name">Паспортные данные:</div>
-                    <br>
-                    <input type="text" name="passportData">
-                </label>
-                <button type="submit" name="add_buyer_form">Добавить покупателя</button>
-            </form>
-
-            <form id="addDealForm" class="form hidden">
-                <label>
-                    <div class="label_name">Дата сделки:</div> <br>
-                    <input type="date" name="dealDate">
-                </label>
-                <label>
-                    <div class="label_name">Цена сделки:</div> <br>
-                    <input type="number" name="dealPrice" >
-                </label>
-                <label>
-                    <div class="label_name">ID Квартиры:</div> <br>
-                    <input type="number" name="apartmentId">
-                </label>
-                <label>
-                    <div class="label_name">ID Покупателя:</div> <br>
-                    <input type="number" name="buyerId">
-                </label>
-                <label>
-                    <div class="label_name">ID Риэлтора:</div> <br>
-                    <input type="number" name="realtorId" >
-                </label>
-                <button type="submit" name="add_deal_form">Добавить сделку</button>
-            </form>
-        </div>
+    <div class="forms-container">
+        <form id="addRealtorForm" class="form hidden" action="index.php" method="POST"> <label>
+                <div class="label_name">Фамилия Имя Отчество:</div> <br>
+                <input type="text" name="fullNameRealtor" placeholder="Иванов Иван Иванович" required>
+            </label>
+            <label>
+                <div class="label_name">Процент вознаграждения:</div> <br>
+                <input type="number" step="0.01" name="commissionPercentage" placeholder="3.05" required>
+            </label>
+            <label>
+                <div class="label_name">Телефон:</div> <br>
+                <input type="tel" name="phoneRealtor" pattern="^\+[0-9]{11,14}$" placeholder="+7(999)-999-99-99"
+                    required>
+            </label>
+            <label>
+                <div class="label_name">Электронная почта:</div> <br>
+                <input type="email" name="emailRealtor" placeholder="example@mail.ru" required>
+            </label>
+            <button type="submit" name="add_realtor_form">Добавить риэлтора</button>
+        </form>
+        <form id="addApartmentForm" class="form hidden"> <label>
+                <div class="label_name">Название улицы:</div> <br>
+                <input type="text" name="street" placeholder="Пушкина">
+            </label>
+            <label>
+                <div class="label_name">Номер дома:</div> <br>
+                <input type="number" name="houseNumber" placeholder="12">
+            </label>
+            <label>
+                <div class="label_name">Номер квартиры:</div> <br>
+                <input type="number" name="apartmentNumber" placeholder="34">
+            </label>
+            <label>
+                <div class="label_name">Этаж:</div> <br>
+                <input type="number" name="floor" placeholder="5">
+            </label>
+            <label>
+                <div class="label_name">Площадь:</div> <br>
+                <input type="number" name="area" placeholder="50">
+            </label>
+            <label>
+                <div class="label_name">Количество комнат:</div> <br>
+                <input type="number" name="roomsCount" placeholder="2">
+            </label>
+            <label>
+                <div class="label_name">Цена квартиры:</div> <br>
+                <input type="number" name="price" placeholder="3000000">
+            </label> <button type="submit" name="add_apartment_form">Добавить квартиру</button>
+        </form>
+        <form id="addBuyerForm" class="form hidden"> <label>
+                <div class="label_name">ФИО:</div> <br>
+                <input type="text" name="fullNameBuyer" placeholder="Петров Петр Петрович">
+            </label>
+            <label>
+                <div class="label_name">Бюджет:</div> <br>
+                <input type="number" name="budget" placeholder="2500000">
+            </label>
+            <label>
+                <div class="label_name">Пожелания:</div> <br>
+                <input type="text" name="preferences" placeholder="2-х комнатная квартира, не ниже 3-го этажа">
+            </label>
+            <label>
+                <div class="label_name">Телефон:</div> <br>
+                <input type="tel" name="phoneBuyer" pattern="^\+[0-9]{11,14}$" placeholder="+7(999)-999-99-99">
+            </label>
+            <label>
+                <div class="label_name">Email:</div> <br>
+                <input type="email" name="emailBuyer" placeholder="example@mail.ru">
+            </label>
+            <label>
+                <div class="label\_name">Паспортные данные:</div> <br>
+                <input type="text" name="passportData" placeholder="Серия и номер паспорта">
+            </label>
+            <button type="submit" name="add\_buyer\_form">Добавить покупателя</button>
+        </form>
+        <form id="addDealForm" class="form hidden"> <label>
+                <div class="label\_name">Дата сделки:</div> <br>
+                <input type="date" name="dealDate">
+            </label>
+            <label>
+                <div class="label\_name">Цена сделки:</div> <br>
+                <input type="number" name="dealPrice" placeholder="2700000">
+            </label>
+            <label>
+                <div class="label\_name">ID Квартиры:</div> <br>
+                <input type="number" name="apartmentId" placeholder="341">
+            </label>
+            <label>
+                <div class="label\_name">ID Покупателя:</div> <br>
+                <input type="number" name="buyerId" placeholder="141">
+            </label>
+            <label>
+                <div class="label\_name">ID Риэлтора:</div> <br>
+                <input type="number" name="realtorId" placeholder="617">
+            </label>
+            <button type="submit" name="add\_deal\_form">Добавить сделку</button>
+        </form>
     </div>
 
     <div id="dbQueries" class="content hidden">
