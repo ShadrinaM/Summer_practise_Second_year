@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Realtors Data</title>
 </head>
 
 <body>
@@ -21,9 +21,9 @@
                     html += '<tr><th>ID</th><th>Name</th><th>Email</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
-                        html += '<td>' + results[i].id + '</td>';
-                        html += '<td>' + results[i].name + '</td>';
-                        html += '<td>' + results[i].email + '</td>';
+                        html += '<td>' + results[i].Realtor_ID + '</td>';
+                        html += '<td>' + results[i].Full_Name + '</td>';
+                        html += '<td>' + results[i].Email + '</td>';
                         html += '</tr>';
                     }
                     html += '</table>';
