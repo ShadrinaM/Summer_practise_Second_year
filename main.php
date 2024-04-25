@@ -24,10 +24,10 @@
     </header>
     <div id="addRecords" class="content">
         <div class="form-buttons">
-            <button id="toggleRealtorFormBtn">Add Realtor</button>
-            <button id="toggleApartmentFormBtn">Add Apartment</button>
-            <button id="toggleBuyerFormBtn">Add Buyer</button>
-            <button id="toggleDealFormBtn">Add Deal</button>
+            <button type="submit" name="add_realtor_form">Add Realtor</button>
+            <button type="submit" name="add_apartment_form">Add Apartment</button>
+            <button type="submit" name="add_buyer_form">Add Buyer</button>
+            <button type="submit" name="add_deal_form">Add Deal</button>
         </div>
         <div class="forms-container">
             <form id="addRealtorForm" class="form hidden" action="index.php" method="POST">
