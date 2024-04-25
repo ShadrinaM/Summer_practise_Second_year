@@ -63,10 +63,97 @@ if (isset($_POST['add_realtor_form'])) {
     $id = $db->lastInsertId();
 } elseif (isset($_POST['add_apartment_form'])) {
     // Обработка формы Add Apartment
-    // ...
+    $errors = FALSE;
+    if (empty($_POST['street']) || !preg_match('/^[а-яА-ЯёЁa-zA-Z\s-]{1,100}$/u', $_POST['street'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['houseNumber']) || !preg_match('/^[0-9]+$/', $_POST['houseNumber'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['apartmentNumber']) || !preg_match('/^[0-9]+$/', $_POST['apartmentNumber'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['floor']) || !preg_match('/^[0-9]+$/', $_POST['floor'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['area']) || !preg_match('/^[0-9]+$/', $_POST['area'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['roomsCount']) || !preg_match('/^[0-9]+$/', $_POST['roomsCount'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['price']) || !preg_match('/^[0-9]+$/', $_POST['price'])) {
+        $errors = TRUE;
+    }
+
+    if ($errors) {
+        exit();
+    }
+
+    $stmt = $db->prepare("INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES (:street, :houseNumber, :apartmentNumber, :floor, :area, :roomsCount, :price)");
+    //создание запроса
+    $stmt->bindParam(':street', $street);
+    $stmt->bindParam(':houseNumber', $houseNumber);
+    $stmt->bindParam(':apartmentNumber', $apartmentNumber);
+    $stmt->bindParam(':floor', $floor);
+    $stmt->bindParam(':area', $area);
+    $stmt->bindParam(':roomsCount', $roomsCount);
+    $stmt->bindParam(':price', $price);
+
+    $street = $_POST['street'];
+    $houseNumber = $_POST['houseNumber'];
+    $apartmentNumber = $_POST['apartmentNumber'];
+    $floor = $_POST['floor'];
+    $area = $_POST['area'];
+    $roomsCount = $_POST['roomsCount'];
+    $price = $_POST['price'];
+
+    $stmt->execute(); //отправка
+    $id = $db->lastInsertId();
 } elseif (isset($_POST['add_buyer_form'])) {
     // Обработка формы Add Buyer
-    // ...
+    $errors = FALSE;
+    if (empty($_POST['fullNameBuyer']) || !preg_match('/^[а-яА-ЯёЁa-zA-Z\s-]{1,100}$/u', $_POST['fullNameBuyer'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['budget']) || !preg_match('/^[0-9]+$/', $_POST['budget'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['preferences']) || !preg_match('/^[а-яА-ЯёЁa-zA-Z0-9\s,-]{1,200}$/u', $_POST['preferences'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['phoneBuyer']) || !preg_match('/^\+[0-9]{11,14}$/', $_POST['phoneBuyer'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['emailBuyer']) || !preg_match('/^([a-z0-9_-]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,5})$/i', $_POST['emailBuyer'])) {
+        $errors = TRUE;
+    }
+    if (empty($_POST['passportData']) || !preg_match('/^[а-яА-ЯёЁa-zA-Z0-9\s-]{1,100}$/u', $_POST['passportData'])) {
+        $errors = TRUE;
+    }
+
+    if ($errors) {
+        exit();
+    }
+
+    $stmt = $db->prepare("INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES (:fullNameBuyer, :budget, :preferences, :phoneBuyer, :emailBuyer, :passportData)");
+    //создание запроса
+    $stmt->bindParam(':fullNameBuyer', $fullNameBuyer);
+    $stmt->bindParam(':budget', $budget);
+    $stmt->bindParam(':preferences', $preferences);
+    $stmt->bindParam(':phoneBuyer', $phoneBuyer);
+    $stmt->bindParam(':emailBuyer', $emailBuyer);
+    $stmt->bindParam(':passportData', $passportData);
+
+    $fullNameBuyer = $_POST['fullNameBuyer'];
+    $budget = $_POST['budget'];
+    $preferences = $_POST['preferences'];
+    $phoneBuyer = $_POST['phoneBuyer'];
+    $emailBuyer = $_POST['emailBuyer'];
+    $passportData = $_POST['passportData'];
+
+    $stmt->execute(); //отправка
+    $id = $db->lastInsertId();
 } elseif (isset($_POST['add_deal_form'])) {
     // Обработка формы Add Deal
     // ...

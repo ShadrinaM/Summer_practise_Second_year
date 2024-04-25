@@ -20,7 +20,7 @@
         </select> <button id="toggleThemeBtn" style="font-size: 40px;">☼</button>
     </header>
     <div id="addRecords" class="content">
-        <div class="form-buttons">    
+        <div class="form-buttons">
             <button id="toggleBuyerFormBtn">Добавить покупателя</button>
             <button id="toggleRealtorFormBtn">Добавить риэлтора</button>
             <button id="toggleApartmentFormBtn">Добавить квартиру</button>
@@ -63,7 +63,7 @@
                     <input type="number" name="floor" placeholder="5">
                 </label>
                 <label>
-                    <div class="label_name">Площадь:</div> <br>
+                    <div class="label_name">Площадь квартиры:</div> <br>
                     <input type="number" name="area" placeholder="50">
                 </label>
                 <label>
