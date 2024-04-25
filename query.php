@@ -6,7 +6,7 @@ function getAllRealtors()
     $user = userr; // имя пользователя базы данных
     $password = passs; // пароль базы данных
     $dbname = $user; // имя базы данных
-    
+
     try {
         // создаем соединение с базой данных
         $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
@@ -24,11 +24,26 @@ function getAllRealtors()
         // закрываем соединение с базой данных
         $conn = null;
 
-        // возвращаем массив со всеми данными из таблицы Realtors
-        return $realtors;
+        // выводим результат в виде таблицы
+        $output = '<table border="1">';
+        $output .= '<tr><th>ID</th><th>ФИО</th><th>Процент вознаграждения</th><th>Телефон</th><th>Email</th></tr>';
+        foreach ($realtors as $realtor) {
+            $output .= '<tr>';
+            $output .= '<td>' . $realtor['Realtor_ID'] . '</td>';
+            $output .= '<td>' . $realtor['Full_Name'] . '</td>';
+            $output .= '<td>' . $realtor['Commission_Percentage'] . '</td>';
+            $output .= '<td>' . $realtor['Phone'] . '</td>';
+            $output .= '<td>' . $realtor['Email'] . '</td>';
+            $output .= '</tr>';
+        }
+        $output .= '</table>';
+
+        // возвращаем результат в виде строки
+        return $output;
     } catch (PDOException $e) {
         // если произошла ошибка при выполнении SQL-запроса, выводим сообщение об ошибке и завершаем работу скрипта
         echo "Error: " . $e->getMessage();
         exit();
     }
-} ?>
+}
+?>

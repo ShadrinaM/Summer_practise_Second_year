@@ -138,7 +138,7 @@
                         (1) Выбирает из таблицы Apartments (КВАРТИРЫ) информацию о 3-комнатных квартирах, расположенных
                         на улице "Садовая"
                     </div>
-                    <button class="button_select" id="button_select_1" data-query="1"> Выполнить запрос 1</button>
+                    <button class="button_select" id="button_select_1"> Выполнить запрос 1</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
@@ -209,25 +209,6 @@
                 <div class="output"></div>
             </div>
         </div>
-        <script>
-            // добавляем обработчик события нажатия на кнопку "Выполнить запрос 1"
-            document.getElementById('button_select_1').addEventListener('click', function () {
-                // отправляем AJAX-запрос на сервер
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', 'query.php', true);
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        // если запрос выполнен успешно, выводим результат в элемент с классом "output"
-                        var output = document.querySelector('.output');
-                        output.innerHTML = xhr.responseText;
-                    } else {
-                        console.log('Request failed.  Returned status of ' + xhr.status);
-                    }
-                };
-                xhr.send();
-            });
-        </script>
-
     </div>
 
     <script>
@@ -280,16 +261,21 @@
             }
         });
 
+        // добавляем обработчик события нажатия на кнопку "Выполнить запрос 1"
         document.getElementById('button_select_1').addEventListener('click', function () {
-            let xhr = new XMLHttpRequest();
-            xhr.open('POST', 'query.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('query=1');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    document.querySelector('.output').innerHTML = xhr.responseText;
+            // отправляем AJAX-запрос на сервер
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'query.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // если запрос выполнен успешно, выводим результат в элемент с классом "output"
+                    var output = document.querySelector('.output');
+                    output.innerHTML = xhr.responseText;
+                } else {
+                    console.log('Request failed.  Returned status of ' + xhr.status);
                 }
-            }
+            };
+            xhr.send();
         });
 
     </script>
