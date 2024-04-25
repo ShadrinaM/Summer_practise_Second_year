@@ -20,9 +20,10 @@
         </select> <button id="toggleThemeBtn" style="font-size: 40px;">☼</button>
     </header>
     <div id="addRecords" class="content">
-        <div class="form-buttons"> <button id="toggleRealtorFormBtn">Добавить риэлтора</button>
-            <button id="toggleApartmentFormBtn">Добавить квартиру</button>
+        <div class="form-buttons">    
             <button id="toggleBuyerFormBtn">Добавить покупателя</button>
+            <button id="toggleRealtorFormBtn">Добавить риэлтора</button>
+            <button id="toggleApartmentFormBtn">Добавить квартиру</button>
             <button id="toggleDealFormBtn">Добавить сделку</button>
         </div>
         <div class="forms-container">
