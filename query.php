@@ -1,31 +1,34 @@
 <?php
-include ('../ShadrinaMM_Web2/Secret.php');
-$user = 'userr';
-$pass = 'passs';
+function getAllRealtors()
+{
+    include ('../ShadrinaMM_Web2/Secret.php');
+    $host = 'localhost'; // хост базы данных
+    $user = userr; // имя пользователя базы данных
+    $password = passs; // пароль базы данных
+    $dbname = $user; // имя базы данных
+    
+    try {
+        // создаем соединение с базой данных
+        $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
 
-$query = $_POST['query'];
+        // устанавливаем режим обработки ошибок PDO на исключения
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-try {
-    $db = new PDO("mysql:host=localhost;dbname=$user", $user, $pass, [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+        // создаем SQL-запрос для получения всех данных из таблицы Realtors
+        $sql = "SELECT * FROM Realtors";
 
-if ($query == 1) {
-    $sql = "SELECT * FROM Apartments WHERE Rooms_Count = 3 AND Street = 'Садовая'";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
+        // выполняем SQL-запрос и получаем результат
+        $stmt = $conn->query($sql);
+        $realtors = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($stmt->rowCount() > 0) {
-        echo "<table><tr><th>ID</th><th>Улица</th><th>Номер дома</th><th>Номер квартиры</th><th>Этаж</th><th>Площадь</th><th>Количество комнат</th><th>Цена</th></tr>";
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "<tr><td>" . $row["Apartment_ID"] . "</td><td>" . $row["Street"] . "</td><td>" . $row["House_Number"] . "</td><td>" . $row["Apartment_Number"] . "</td><td>" . $row["Floor"] . "</td><td>" . $row["Area"] . "</td><td>" . $row["Rooms_Count"] . "</td><td>" . $row["Price"] . "</td></tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "0 results";
+        // закрываем соединение с базой данных
+        $conn = null;
+
+        // возвращаем массив со всеми данными из таблицы Realtors
+        return $realtors;
+    } catch (PDOException $e) {
+        // если произошла ошибка при выполнении SQL-запроса, выводим сообщение об ошибке и завершаем работу скрипта
+        echo "Error: " . $e->getMessage();
+        exit();
     }
-}
-
-$db = null;
-?>
+} ?>

@@ -209,7 +209,24 @@
                 <div class="output"></div>
             </div>
         </div>
-
+        <script>
+            // добавляем обработчик события нажатия на кнопку "Выполнить запрос 1"
+            document.getElementById('button_select_1').addEventListener('click', function () {
+                // отправляем AJAX-запрос на сервер
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'query.php', true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        // если запрос выполнен успешно, выводим результат в элемент с классом "output"
+                        var output = document.querySelector('.output');
+                        output.innerHTML = xhr.responseText;
+                    } else {
+                        console.log('Request failed.  Returned status of ' + xhr.status);
+                    }
+                };
+                xhr.send();
+            });
+        </script>
 
     </div>
 
