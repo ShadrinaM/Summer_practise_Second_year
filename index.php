@@ -28,7 +28,7 @@ if (empty($_POST['emailRealtor']) || !preg_match('/^([a-z0-9_-]+(?:[-_.]?[a-z0-9
     $errors = TRUE;
 }
 
-include ('../Secret.php');
+include ('../ShadrinaMM_Web2//Secret.php');
 $user = userr;
 $pass = passs;
 $db = new PDO(
