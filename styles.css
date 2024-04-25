@@ -48,6 +48,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
+    border: 2px solid rgb(0, 36, 59);
 }
 
 
