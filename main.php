@@ -99,7 +99,7 @@
                     <div class="label\_name">Паспортные данные:</div> <br>
                     <input type="text" name="passportData" placeholder="Серия и номер паспорта">
                 </label>
-                <button type="submit" name="add\_buyer\_form">Добавить покупателя</button>
+                <button type="submit" name="add_buyer_form">Добавить покупателя</button>
             </form>
             <form id="addDealForm" class="form hidden"> <label>
                     <div class="label\_name">Дата сделки:</div> <br>
@@ -121,7 +121,7 @@
                     <div class="label\_name">ID Риэлтора:</div> <br>
                     <input type="number" name="realtorId" placeholder="617">
                 </label>
-                <button type="submit" name="add\_deal\_form">Добавить сделку</button>
+                <button type="submit" name="add_deal_form">Добавить сделку</button>
             </form>
         </div>
     </div>
