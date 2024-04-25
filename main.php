@@ -133,13 +133,50 @@
         <div class="queries-container">
             <div class="queryDescriptions">
                 <div class="title_queries">Шаблонные запросы к базе данных:</div>
-                <div class="Query">
-                    <div class="query_name">
-                        (1) Выбирает из таблицы Apartments (КВАРТИРЫ) информацию от 3-комнатных квартирах, расположенных
-                        на улице "Садовая"
+                <?php
+                include ('../ShadrinaMM_Web2/Secret.php');
+                $user = 'userr';
+                $pass = 'passs';
+
+                try {
+                    $db = new PDO(
+                        "mysql:host=localhost;dbname=$user",
+                        $user,
+                        $pass,
+                        [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+                    );
+
+                    if (isset($_POST['query_button']) && $_POST['query_button'] == 'button_select_1') {
+                        $sql = "SELECT * FROM Apartments WHERE Rooms_Count = 3 AND Street = 'Садовая'";
+                        $result = $db->query($sql);
+
+                        if ($result->rowCount() > 0) {
+                            echo "<div class='output'>";
+                            // output data of each row
+                            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                echo "ID: " . $row["Apartment_ID"] . " - Street: " . $row["Street"] . " - House Number: " . $row["House_Number"] . " - Apartment Number: " . $row["Apartment_Number"] . " - Floor: " . $row["Floor"] . " - Area: " . $row["Area"] . " - Rooms Count: " . $row["Rooms_Count"] . " - Price: " . $row["Price"] . "<br>";
+                            }
+                            echo "</div>";
+                        } else {
+                            echo "0 results";
+                        }
+                    }
+                } catch (PDOException $e) {
+                    echo "Error: " . $e->getMessage();
+                }
+
+                $db = null;
+                ?>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                    <div class="Query">
+                        <div class="query_name">
+                            (1) Выбирает из таблицы Apartments (КВАРТИРЫ) информацию от 3-комнатных квартирах,
+                            расположенных на улице "Садовая"
+                        </div>
+                        <button class="button_select" type="submit" name="query_button" value="button_select_1">
+                            Выполнить запрос 1</button>
                     </div>
-                    <button class="button_select" data-query="1"> Выполнить запрос 1</button>
-                </div>
+                </form>
                 <div class="Query">
                     <div class="query_name">
                         (2)Выбирает из таблицы Realtors (РИЭЛТОРЫ) информацию о риэлторах, для которых фамилия
@@ -206,7 +243,6 @@
                 </div>
             </div>
             <div class="output-container">
-                <div class="output"></div>
             </div>
         </div>
 
@@ -264,19 +300,7 @@
         });
 
 
-        $(document).ready(function () {
-            $('.button_select').click(function () {
-                var query = $(this).data('query');
-                $.ajax({
-                    url: 'query_1.php',
-                    type: 'POST',
-                    data: { query: query },
-                    success: function (response) {
-                        $('.output').html(response);
-                    }
-                });
-            });
-        });
+
     </script>
 </body>
 
