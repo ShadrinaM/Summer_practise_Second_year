@@ -131,7 +131,7 @@ CREATE TABLE Buyers (
 );
 
 CREATE TABLE Deals (
-    Deal_ID INT PRIMARY KEY,
+    Deal_ID INT AUTO_INCREMENT PRIMARY KEY,
     Deal_Date DATE,
     Deal_Price DECIMAL(10,2),
     Apartment_ID INT,
@@ -143,20 +143,22 @@ CREATE TABLE Deals (
 );
 
 
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Иванов Иван Иванович', 12.01, '+79991234567', 'ivanov@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Петрова Анна Сергеевна', 10.00, '+79992223344', 'petrova@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Кузнецов Сергей Александрович', 11.5, '+79995556677', 'kuznetsov@mail.ru');
+INSERT INTO Realtors (Realtor_ID, Full_Name, Commission_Percentage, Phone, Email) VALUES (1000, 'Иванов Иван Иванович', 12, '+79991234567', 'ivanov@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Петрова Анна Сергеевна', 10, '+79992223344', 'petrova@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Кузнецов Сергей Александрович', 11, '+79995556677', 'kuznetsov@mail.ru');
 INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Иванова Елена Николаевна', 13, '+79996667788', 'ivanova@mail.ru');
 INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Петрова Мария Владимировна', 9, '+79997778899', 'petrova_m@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Смирнов Алексей Юрьевич', 12.07, '+79998889900', 'smirnov@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Смирнов Алексей Юрьевич', 12, '+79998889900', 'smirnov@mail.ru');
 INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Попова Наталья Васильевна', 14, '+79999990011', 'popova@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Васильев Владимир Алексеевич', 8.01, '+79990001122', 'vasiliev@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Соколова Ольга Ивановна', 10.4, '+79991112233', 'sokolova@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Васильев Владимир Алексеевич', 8, '+79990001122', 'vasiliev@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Соколова Ольга Ивановна', 10, '+79991112233', 'sokolova@mail.ru');
 INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Лебедев Дмитрий Сергеевич', 15, '+79992223344', 'lebedev@mail.ru');
-INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Игнатьев Ян Николаевич', 16.66, '+79992223344', 'ignat@mail.ru');
+INSERT INTO Realtors (Full_Name, Commission_Percentage, Phone, Email) VALUES ('Игнатьев Ян Николаевич', 16, '+79992223344', 'ignat@mail.ru');
+select * from Realtors;
+DELETE FROM Realtors;
 
 
-INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES ('Садовая', 1, 10, 2, 60, 3, 1200000);
+INSERT INTO Apartments (Apartment_ID, Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES (2000, 'Садовая', 1, 10, 2, 60, 3, 1200000);
 INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES ('Лесная', 25, 2, 32, 45, 2, 9500000);
 INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES ('Центральная', 30, 3, 4, 70, 3, 1400000);
 INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES ('Садовая', 46, 24, 1, 55, 2, 1100000);
@@ -167,7 +169,9 @@ INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Roo
 INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES ('Центральная', 19, 19, 1, 40, 1, 8000000);
 INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES ('Лесная', 10, 10, 2, 50, 2, 1000000);
 INSERT INTO Apartments (Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price) VALUES ('Лесная', 10, 10, 2, 50, 1, 950000);
+select * from Apartments;
 
+INSERT INTO Buyers (Buyer_ID, Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES (3000,'Сидоров Петр Петрович', 1500000, '3-комнатная, центр', '+79993332211', 'sidorov@mail.ru', '1234 567890');
 INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Сидоров Петр Петрович', 1500000, '3-комнатная, центр', '+79993332211', 'sidorov@mail.ru', '1234 567890');
 INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Кузнецова Елена Николаевна', 1000000, '2-комнатная, парковка', '+79994443322', 'kuznetsova@mail.ru', '2345 678901');
 INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Васильева Ольга Сергеевна', 1200000, '2-комнатная, новая постройка', '+79997776655', 'vasilieva@mail.ru', '3456 789012');
@@ -180,19 +184,21 @@ INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data)
 INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Романов Андрей Михайлович', 1600000, '4-комнатная, высокий этаж', '+79994445566', 'romanov@mail.ru', '0123 456789');
 INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Куликова Татьяна Сергеевна', 1400000, '3-комнатная, близость школы', '+79995556677', 'kulikova@mail.ru', '1234 567890');
 INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Борисов Владимир Игоревич', 1700000, '4-комнатная, наличие балкона', '+79996667788', 'borisov@mail.ru', '2345 678901');
+select * from Buyers;
 
-/*mysql*/
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (12342, '2022-01-01', 12000000, 1, 1, 5);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (56521, '2022-01-01', 1200000, 1, 1, 1);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (89792, '2022-01-02', 950000, 1, 2, 2);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (32545, '2022-01-03', 1400000, 3, 3, 3);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (48678, '2022-01-04', 1100000, 4, 4, 4);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (67575, '2022-01-05', 1600000, 5, 5, 5);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (64345, '2022-01-06', 1300000, 4, 6, 6);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (70535, '2022-01-07', 1800000, 7, 7, 7);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (23458, '2022-01-08', 1500000, 8, 3, 8);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (96543, '2022-01-09', 800000, 3, 9, 9);
-INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (14570, '2022-01-10', 1000000, 10, 10, 10);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (12342, '2022-01-01', 12000000, 2001, 3001, 1005);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (56521, '2022-01-01', 1200000, 2001, 3001, 1001);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (89792, '2022-01-02', 950000, 2001, 3002, 1002);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (32545, '2022-01-03', 1400000, 2003, 3003, 1003);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (48678, '2022-01-04', 1100000, 2004, 3004, 1004);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (67575, '2022-01-05', 1600000, 2005, 3005, 1005);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (64345, '2022-01-06', 1300000, 2004, 3006, 1006);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (70535, '2022-01-07', 1800000, 2007, 3007, 1007);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (23458, '2022-01-08', 1500000, 2008, 3003, 1008);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (96543, '2022-01-09', 800000, 2003, 3009, 1009);
+INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (14570, '2022-01-10', 1000000, 2010, 3010, 1010);
+INSERT INTO Deals (Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES ('2022-04-10', 2000000, 2010, 3011, 1010);
+select * from Deals;
 
 
 /*mysql*/
@@ -200,6 +206,11 @@ select * from Realtors;
 select * from Apartments;
 select * from Buyers;
 select * from Deals;
+
+DROP TABLE IF EXISTS Deals CASCADE;
+DROP TABLE IF EXISTS Buyers CASCADE;
+DROP TABLE IF EXISTS Apartments CASCADE;
+DROP TABLE IF EXISTS Realtors CASCADE;
 
 
 

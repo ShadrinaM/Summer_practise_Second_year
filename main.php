@@ -21,9 +21,9 @@
     </header>
     <div id="addRecords" class="content">
         <div class="form-buttons">
-            <button id="toggleBuyerFormBtn">Добавить покупателя</button>
             <button id="toggleRealtorFormBtn">Добавить риэлтора</button>
             <button id="toggleApartmentFormBtn">Добавить квартиру</button>
+            <button id="toggleBuyerFormBtn">Добавить покупателя</button>
             <button id="toggleDealFormBtn">Добавить сделку</button>
         </div>
         <div class="forms-container">
@@ -113,17 +113,17 @@
                     <input type="number" name="dealPrice" placeholder="2700000">
                 </label>
                 <label>
+                    <div class="label\_name">ID Риэлтора:</div> <br>
+                    <input type="number" name="realtorId" placeholder="1XXX">
+                </label>
+                <label>
                     <div class="label\_name">ID Квартиры:</div> <br>
-                    <input type="number" name="apartmentId" placeholder="341">
+                    <input type="number" name="apartmentId" placeholder="2XXX">
                 </label>
                 <label>
                     <div class="label\_name">ID Покупателя:</div> <br>
-                    <input type="number" name="buyerId" placeholder="141">
-                </label>
-                <label>
-                    <div class="label\_name">ID Риэлтора:</div> <br>
-                    <input type="number" name="realtorId" placeholder="617">
-                </label>
+                    <input type="number" name="buyerId" placeholder="3XXX">
+                </label>                
                 <button type="submit" name="add_deal_form">Добавить сделку</button>
             </form>
         </div>
