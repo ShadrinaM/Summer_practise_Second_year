@@ -46,7 +46,7 @@
                 </label>
                 <button type="submit" name="add_realtor_form">Добавить риэлтора</button>
             </form>
-            <form id="addApartmentForm" class="form hidden" action="index.php" method="POST"> 
+            <form id="addApartmentForm" class="form hidden" action="index.php" method="POST">
                 <label>
                     <div class="label_name">Название улицы:</div> <br>
                     <input type="text" name="street" placeholder="Пушкина">
@@ -76,7 +76,7 @@
                     <input type="number" name="price" placeholder="3000000">
                 </label> <button type="submit" name="add_apartment_form">Добавить квартиру</button>
             </form>
-            <form id="addBuyerForm" class="form hidden" action="index.php" method="POST"> 
+            <form id="addBuyerForm" class="form hidden" action="index.php" method="POST">
                 <label>
                     <div class="label_name">ФИО:</div> <br>
                     <input type="text" name="fullNameBuyer" placeholder="Петров Петр Петрович">
@@ -103,7 +103,7 @@
                 </label>
                 <button type="submit" name="add_buyer_form">Добавить покупателя</button>
             </form>
-            <form id="addDealForm" class="form hidden" action="index.php" method="POST"> 
+            <form id="addDealForm" class="form hidden" action="index.php" method="POST">
                 <label>
                     <div class="label\_name">Дата сделки:</div> <br>
                     <input type="date" name="dealDate">
@@ -123,7 +123,7 @@
                 <label>
                     <div class="label\_name">ID Покупателя:</div> <br>
                     <input type="number" name="buyerId" placeholder="3XXX">
-                </label>                
+                </label>
                 <button type="submit" name="add_deal_form">Добавить сделку</button>
             </form>
         </div>
@@ -138,33 +138,26 @@
                         (1) Выбирает из таблицы Apartments (КВАРТИРЫ) информацию от 3-комнатных квартирах, расположенных
                         на улице "Садовая"
                     </div>
-                    <button onclick="executeQuery(1)" class="button_select"> Выполнить запрос 1</button>
+                    <button class="button_select" data-query="1"> Выполнить запрос 1</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
                         (2)Выбирает из таблицы Realtors (РИЭЛТОРЫ) информацию о риэлторах, для которых фамилия
-                        начинается
-                        с
-                        буквы "И" и
-                        процент вознаграждения больше 10
+                        начинается с буквы "И" и процент вознаграждения больше 10
                     </div>
                     <button onclick="executeQuery(2)" class="button_select"> Выполнить запрос 2</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
                         (3) Выбирает из табоицы Apartments (КВАРТИРЫ) информацию об 1-комнатных квартирах, цена на
-                        которые
-                        находится в
-                        диапазоне от 900000 до 1000000
+                        которые находится в диапазоне от 900000 до 1000000
                     </div>
                     <button onclick="executeQuery(3)" class="button_select"> Выполнить запрос 3</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
                         (4) Выбирает из таблицы Apartments (КВАРТИРЫ) информацию о квартирах с некоторым количеством
-                        комнат.
-                        Конкретное
-                        количество комнат вводится при выполнении запроса.
+                        комнат. Конкретное количество комнат вводится при выполнении запроса.
                     </div>
                     <label>
                         Число комнат:
@@ -213,9 +206,7 @@
                 </div>
             </div>
             <div class="output-container">
-                <div class="output">
-                    HiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiiHiHiHiHiHiHiHiHiHiHiHiHiHiHi
-                </div>
+                <div class="output"></div>
             </div>
         </div>
 
@@ -270,6 +261,21 @@
             } else {
                 document.getElementById("logo").src = "logooo.bmp";
             }
+        });
+
+
+        $(document).ready(function () {
+            $('.button_select').click(function () {
+                var query = $(this).data('query');
+                $.ajax({
+                    url: 'query_1.php',
+                    type: 'POST',
+                    data: { query: query },
+                    success: function (response) {
+                        $('.output').html(response);
+                    }
+                });
+            });
         });
     </script>
 </body>
