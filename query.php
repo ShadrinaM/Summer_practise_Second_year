@@ -1,9 +1,9 @@
 <?php
 header('Content-Type: application/json; charset=UTF-8');
 
-include ('../ShadrinaMM_Web2/Secret.php'); // Ensure the correct path to Secret.php
-$user = 'userr'; // Replace with your actual username
-$pass = 'passs'; // Replace with your actual password
+include ('../ShadrinaMM_Web2/Secret.php'); // Убедитесь, что указан правильный путь к Secret.php
+$user = userr; // Укажите ваше реальное имя пользователя
+$pass = passs; // Укажите ваш реальный пароль
 
 try {
     $db = new PDO(
@@ -19,7 +19,7 @@ try {
 
     echo json_encode($results);
 } catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
+    echo "Ошибка: " . $e->getMessage();
     die();
 }
 ?>

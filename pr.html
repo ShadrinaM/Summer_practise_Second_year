@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Realtors Data</title>
+    <title>Данные риэлторов</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
                     var html = '<table border="1">';
-                    html += '<tr><th>ID</th><th>Name</th><th>Email</th></tr>';
+                    html += '<tr><th>ID</th><th>Имя</th><th>Email</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
                         html += '<td>' + results[i].Realtor_ID + '</td>';
@@ -29,7 +29,7 @@
                     html += '</table>';
                     document.getElementById('results').innerHTML = html;
                 } else {
-                    console.log('Request failed.  Returned status of ' + xhr.status);
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
                 }
             };
             xhr.send();
