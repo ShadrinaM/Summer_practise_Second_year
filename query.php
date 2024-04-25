@@ -1,5 +1,5 @@
 <?php
-include ('../ShadrinaMM_Web2/Secret.php');
+include '../ShadrinaMM_Web2/Secret.php';
 $user = 'userr';
 $pass = 'passs';
 
