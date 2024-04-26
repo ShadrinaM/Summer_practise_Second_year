@@ -210,7 +210,7 @@
                     <button class="button_select" id="button_specific_select_8"> Выполнить запрос 8</button>
                 </div>
             </div>
-            <div class="output-container" style="padding: 15px;">
+            <div class="output-container" style="padding: 15px; overflow-y: auto; max-height: calc(100vh - 132px); padding-right: 15px;">
                 <div id="results"></div>
             </div>
         </div>
@@ -279,11 +279,6 @@
             padding: 15px;
             text-align: center;
             border: 1px solid;
-        }
-        .output-container {
-            overflow-y: auto;
-            max-height: calc(100vh - 132px);
-            padding-right: 15px;
         }
         </style>
         `;
