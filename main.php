@@ -272,10 +272,9 @@
         var cssTable = `
         <style>
         table {
-            margin: 20px;
+            padding: 15px;
             border: 1px solid;
         }
-
         table th,
         table td {
             padding: 15px;
