@@ -502,8 +502,7 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var cssTable = '<style>table, th, td {border: 1px solid black; border-collapse: collapse;}</style>';
-                    var html = cssTable + '<table>';
+                    var html = cssTable + '<table border="1">';
                     html += '<tr><th>ID Квартиры</th><th>Название улицы</th><th>Номер дома</th><th>Номер квартиры</th><th>Этаж</th><th>Площадь квартиры</th><th>Количество комнат</th><th>Цена квартиры</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
