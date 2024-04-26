@@ -284,7 +284,7 @@
         }
         .output-container {
             overflow-y: auto;
-            max-height: calc(100vh - 135px);
+            max-height: calc(100vh - 140px);
         }
         </style>
         `;
