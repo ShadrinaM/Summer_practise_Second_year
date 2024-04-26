@@ -230,6 +230,12 @@ body.dark-theme .output-container {
     background-color: rgb(31, 31, 31);
 }
 
+body.dark-theme #button_base_AllRealtors,
+body.dark-theme #button_base_AllApartments,
+body.dark-theme #button_base_AllBuyers,
+body.dark-theme #button_base_AllDeals {
+    color: rgb(238, 235, 211);
+}
 
 
 /*вкладка запросов*/
@@ -264,4 +270,13 @@ body.dark-theme .output-container {
 #maxAreaInput,
 #roomsCountInput {
     width: 40%;
+}
+
+
+#button_base_AllRealtors,
+#button_base_AllApartments,
+#button_base_AllBuyers,
+#button_base_AllDeals {
+    background-color: rgb(148, 210, 229);
+    color: rgb(5, 12, 51);
 }

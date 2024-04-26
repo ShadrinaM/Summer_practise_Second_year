@@ -182,7 +182,6 @@ INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data)
 INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Семенова Наталья Петровна', 1100000, '2-комнатная, хорошая планировка', '+79993334455', 'semenova@mail.ru', '9012 345678');
 INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Романов Андрей Михайлович', 1600000, '4-комнатная, высокий этаж', '+79994445566', 'romanov@mail.ru', '0123 456789');
 INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Куликова Татьяна Сергеевна', 1400000, '3-комнатная, близость школы', '+79995556677', 'kulikova@mail.ru', '1234 567890');
-INSERT INTO Buyers (Full_Name, Budget, Preferences, Phone, Email, Passport_Data) VALUES ('Борисов Владимир Игоревич', 1700000, '4-комнатная, наличие балкона', '+79996667788', 'borisov@mail.ru', '2345 678901');
 select * from Buyers;
 
 INSERT INTO Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID) VALUES (12342, '2022-01-01', 12000000, 2001, 3001, 1005);
