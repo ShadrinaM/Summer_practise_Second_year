@@ -119,12 +119,13 @@ button[type="submit"] {
     width: 524px;
     margin: 15px;
 }
+
 .bottom-left-text {
     position: fixed;
     bottom: 0;
     left: 0;
     padding: 10px;
-    background-color: #000000; 
+    background-color: #000000;
     color: aliceblue;
 }
 
@@ -257,4 +258,36 @@ body.dark-theme .output-container {
     background-color: rgb(148, 210, 229);
     border-radius: 5px;
     border: 1px solid rgb(17, 51, 81);
+}
+
+
+
+/*таблица*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid rgb(0, 36, 59);
+}
+
+thead {
+    background-color: rgb(0, 36, 59);
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgb(253, 253, 253);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgb(148, 210, 229);
+}
+
+tbody tr:hover {
+    background-color: rgb(102, 179, 204);
 }
