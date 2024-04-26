@@ -261,9 +261,12 @@ body.dark-theme .output-container {
 }
 
 #results {
-    flex: 1;
+    max-height: 300px;
+    /* максимальная высота блока */
     overflow-y: auto;
-    max-height: calc(100vh - 125px);
+    /* прокрутка по вертикали */
+    padding: 10px;
+    /* отступы вокруг содержимого */
 }
 
 
