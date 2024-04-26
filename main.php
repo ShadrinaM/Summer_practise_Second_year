@@ -283,8 +283,8 @@
             border: 1px solid;
         }
         .output-container {
-            max-height: 300px;
             overflow-y: auto;
+            max-height: calc(100vh - 125px);
             padding: 10px;
         }
         </style>
