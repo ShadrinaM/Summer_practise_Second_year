@@ -7,9 +7,6 @@
     <title>Happy House</title>
     <link rel="icon" type="image/png" href="logooo.bmp">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /**/
-    </style>
 </head>
 
 <body>
@@ -218,10 +215,6 @@
     </div>
 
     <script>
-
-
-
-
         /*отрытие только одной формы добавления записей в бд*/
         document.getElementById('modeSelect').addEventListener('change', function () {
             var selectedMode = this.value;
@@ -257,17 +250,16 @@
             document.getElementById('addDealForm').classList.toggle('hidden');
         });
 
+
         /*замена лого и включение тёмной темы*/
         document.getElementById('toggleThemeBtn').addEventListener('click', function () {
             document.body.classList.toggle('dark-theme');
-
             if (document.body.classList.contains('dark-theme')) {
                 document.getElementById("logo").src = "logooo_dark.bmp";
             } else {
                 document.getElementById("logo").src = "logooo.bmp";
             }
         });
-
 
 
         var cssTable = `
@@ -283,7 +275,6 @@
         }
         </style>
         `;
-
         /* обработчик кнопки button_base_AllRealtors */
         //Realtors (Realtor_ID, Full_Name, Commission_Percentage, Phone, Email)
         document.getElementById('button_base_AllRealtors').addEventListener('click', function () {
@@ -400,8 +391,6 @@
             };
             xhr.send();
         });
-
-
 
 
         /* обработчик кнопки button_specific_select_1 */
@@ -627,9 +616,6 @@
             };
             xhr.send();
         });
-
-
-
     </script>
 </body>
 

@@ -1,3 +1,6 @@
+/*ВЕСЬ КОД ДЛЯ SQL*/
+
+
 /*sql develiper*/
 /*
 CREATE TABLE Realtors (
