@@ -491,14 +491,13 @@
             };
             xhr.send();
         });
-
-
         /* обработчик кнопки button_specific_select_4 */
-        //Выбирает из таблицы Apartments информацию о квартирах с некоторым количеством комнат. Конкретное количество комнат вводится при выполнении запроса.
+        //Выбирает из таблицы Apartments информацию о квартирах с некоторым количеством комнат. 
+        //Конкретное количество комнат вводится при выполнении запроса.
         document.getElementById('button_specific_select_4').addEventListener('click', function () {
             var roomsCountInput = document.getElementById('roomsCountInput').value;
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'specific_query_4.php?roomsCountInput=' + roomsCountInput, true); // Замените на имя вашего PHP-файла
+            xhr.open('GET', 'specific_query_4.php?roomsCountInput=' + roomsCountInput, true);
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
@@ -525,6 +524,38 @@
             xhr.send();
         });
 
+
+        /* обработчик кнопки button_specific_select_5 */
+        document.getElementById('button_specific_select_5').addEventListener('click', function () {
+            var minAreaInput = document.getElementById('minAreaInput').value;
+            var maxAreaInput = document.getElementById('maxAreaInput').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'specific_query_5.php?minAreaInput=' + minAreaInput + '&maxAreaInput=' + maxAreaInput, true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = cssTable + '<table border="1">';
+                    html += '<tr><th>ID Квартиры</th><th>Название улицы</th><th>Номер дома</th><th>Номер квартиры</th><th>Этаж</th><th>Площадь квартиры</th><th>Количество комнат</th><th>Цена квартиры</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Apartment_ID + '</td>';
+                        html += '<td>ул. ' + results[i].Street + '</td>';
+                        html += '<td>' + results[i].House_Number + '</td>';
+                        html += '<td>' + results[i].Apartment_Number + '</td>';
+                        html += '<td>' + results[i].Floor + '</td>';
+                        html += '<td>' + results[i].Area + '</td>';
+                        html += '<td>' + results[i].Rooms_Count + '</td>';
+                        html += '<td>' + results[i].Price + '₽</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
 
 
         /* обработчик кнопки button_specific_select_6 */
