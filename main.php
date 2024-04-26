@@ -282,6 +282,11 @@
             text-align: center;
             border: 1px solid;
         }
+        .output-container {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
         </style>
         `;
 
