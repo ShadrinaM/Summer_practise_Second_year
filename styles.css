@@ -250,8 +250,6 @@ body.dark-theme .output-container {
 .output-container {
     width: 55%;
     background-color: rgb(5, 12, 51);
-    overflow-y: auto;
-    max-height: calc(100vh - 125px);
 }
 
 
@@ -262,6 +260,11 @@ body.dark-theme .output-container {
     border: 1px solid rgb(17, 51, 81);
 }
 
+#results {
+    flex: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 125px);
+}
 
 
 /*таблица*/
