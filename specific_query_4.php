@@ -3,11 +3,6 @@ header('Content-Type: application/json; charset=UTF-8');
 
 $roomsCountInput = isset($_GET['roomsCountInput']) ? intval($_GET['roomsCountInput']) : null;
 
-if ($roomsCountInput !== null) {
-    // Ваш существующий код для выборки из базы данных
-} else {
-    echo "Ошибка: не указано количество комнат.";
-}
 
 if ($roomsCountInput !== null) {
     include ('../ShadrinaMM_Web2/Secret.php');
