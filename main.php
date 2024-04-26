@@ -168,7 +168,7 @@
                         Число комнат:
                         <input type="number" id="roomsCountInput">
                     </label>
-                    <button onclick="executeQuery(4)" class="button_select">Выполнить запрос 4</button>
+                    <button class="button_select" id="button_specific_select_4"> Выполнить запрос 4</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
@@ -184,7 +184,7 @@
                         Максимальная площадь:
                         <input type="number" id="maxAreaInput">
                     </label>
-                    <button onclick="executeQuery(5)" class="button_select"> Выполнить запрос 5</button>
+                    <button class="button_select" id="button_specific_select_5"> Выполнить запрос 5</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
@@ -193,21 +193,21 @@
                         Значения в поле Комиссионные вычисляются по формуле: Комиссионные = Цена квартиры * Процент
                         вознаграждения
                     </div>
-                    <button onclick="executeQuery(6)" class="button_select"> Выполнить запрос 6</button>
+                    <button class="button_select" id="button_specific_select_6"> Выполнить запрос 6</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
                         (7) Выполняет группировку по полю Количество комнат. Для каждой группы вычисляет среднее
                         значение по полю Площадь квартиры.
                     </div>
-                    <button onclick="executeQuery(7)" class="button_select"> Выполнить запрос 7</button>
+                    <button class="button_select" id="button_specific_select_7"> Выполнить запрос 7</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
                         (8) Выполняет группировку по полю Площадь квартиры. Для каждой группы вычисляет наибольшее и
                         наименьшее значение по полю Количество комнат.
                     </div>
-                    <button onclick="executeQuery(8)" class="button_select"> Выполнить запрос 8</button>
+                    <button class="button_select" id="button_specific_select_8"> Выполнить запрос 8</button>
                 </div>
             </div>
             <div class="output-container">
@@ -271,8 +271,6 @@
 
 
 
-
-
         /* обработчик кнопки button_base_AllRealtors */
         //Realtors (Realtor_ID, Full_Name, Commission_Percentage, Phone, Email)
         document.getElementById('button_base_AllRealtors').addEventListener('click', function () {
@@ -300,8 +298,6 @@
             };
             xhr.send();
         });
-
-
         /* обработчик кнопки button_base_AllApartments */
         //Apartments (Apartment_ID, Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price)
         document.getElementById('button_base_AllApartments').addEventListener('click', function () {
@@ -333,8 +329,6 @@
             };
             xhr.send();
         });
-
-
         /* обработчик кнопки button_base_AllBuyers */
         //Buyers (Buyer_ID, Full_Name, Budget, Preferences, Phone, Email, Passport_Data)
         document.getElementById('button_base_AllBuyers').addEventListener('click', function () {
@@ -364,7 +358,6 @@
             };
             xhr.send();
         });
-
         /* обработчик кнопки button_base_AllDeals */
         //Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID)
         document.getElementById('button_base_AllDeals').addEventListener('click', function () {
