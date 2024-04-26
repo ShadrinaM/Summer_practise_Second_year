@@ -496,6 +496,32 @@
             xhr.send();
         });
 
+        /* обработчик кнопки button_specific_select_6 */
+        document.getElementById('button_specific_select_6').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'specific_query_6.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = cssTable + '<table border="1">';
+                    html += '<tr><th>ФИО Риэлтора</th><th>Дата сделки</th><th>Цена квартиры</th><th>Процент вознаграждения</th><th>Комиссионные</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Full_Name + '</td>';
+                        html += '<td> ' + results[i].Deal_Date + '</td>';
+                        html += '<td> ' + results[i].Price + '₽</td>';
+                        html += '<td> ' + results[i].Commission_Percentage + '%</td>';
+                        html += '<td> ' + results[i].Commission + '₽</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
         /* обработчик кнопки button_specific_select_7 */
         document.getElementById('button_specific_select_7').addEventListener('click', function () {
             var xhr = new XMLHttpRequest();
