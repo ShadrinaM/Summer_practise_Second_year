@@ -353,7 +353,9 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var html = cssTable + '<table border="1">';
+                    var html = cssTable;
+                    html += '<style> table th, table td { padding: 10px; } </style>';
+                    html += '<table border="1">';
                     html += '<tr><th>ID Покупателя</th><th>ФИО</th><th>Бюджет</th><th>Пожелания</th><th>Телефон</th><th>Электронная почта</th><th>Паспортные данные</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
