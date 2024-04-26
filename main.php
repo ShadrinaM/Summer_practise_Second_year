@@ -269,7 +269,37 @@
 
 
 
+        var cssTable = `
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid rgb(0, 36, 59);
+        }
 
+        table th,
+        table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid rgb(0, 36, 59);
+        }
+
+        thead {
+            background-color: rgb(148, 210, 229);
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: rgb(253, 253, 253);
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgb(148, 210, 229);
+        }
+
+        tbody tr:hover {
+            background-color: rgb(102, 179, 204);
+        }
+        `;
 
         /* обработчик кнопки button_base_AllRealtors */
         //Realtors (Realtor_ID, Full_Name, Commission_Percentage, Phone, Email)
@@ -279,7 +309,7 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var html = '<table border="1">';
+                    var html = cssTable+'<table border="1">';
                     html += '<tr><th>ID Риэлтора</th><th>ФИО</th><th>Процент вознаграждения</th><th>Телефон</th><th>Электронная почта</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
