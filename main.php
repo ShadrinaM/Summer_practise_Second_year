@@ -217,6 +217,10 @@
     </div>
 
     <script>
+
+
+
+
         /*отрытие только одной формы добавления записей в бд*/
         document.getElementById('modeSelect').addEventListener('change', function () {
             var selectedMode = this.value;
@@ -233,21 +237,18 @@
             document.getElementById('addBuyerForm').classList.add('hidden');
             document.getElementById('addDealForm').classList.add('hidden');
         });
-
         document.getElementById('toggleApartmentFormBtn').addEventListener('click', function () {
             document.getElementById('addRealtorForm').classList.add('hidden');
             document.getElementById('addApartmentForm').classList.toggle('hidden');
             document.getElementById('addBuyerForm').classList.add('hidden');
             document.getElementById('addDealForm').classList.add('hidden');
         });
-
         document.getElementById('toggleBuyerFormBtn').addEventListener('click', function () {
             document.getElementById('addRealtorForm').classList.add('hidden');
             document.getElementById('addApartmentForm').classList.add('hidden');
             document.getElementById('addBuyerForm').classList.toggle('hidden');
             document.getElementById('addDealForm').classList.add('hidden');
         });
-
         document.getElementById('toggleDealFormBtn').addEventListener('click', function () {
             document.getElementById('addRealtorForm').classList.add('hidden');
             document.getElementById('addApartmentForm').classList.add('hidden');
@@ -265,6 +266,136 @@
                 document.getElementById("logo").src = "logooo.bmp";
             }
         });
+
+
+
+
+
+
+
+        /* обработчик кнопки button_base_AllRealtors */
+        //Realtors (Realtor_ID, Full_Name, Commission_Percentage, Phone, Email)
+        document.getElementById('button_base_AllRealtors').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'base_query_AllRealtors.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = '<table border="1">';
+                    html += '<tr><th>ID Риэлтора</th><th>ФИО</th><th>Процент вознаграждения</th><th>Телефон</th><th>Электронная почта</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Realtor_ID + '</td>';
+                        html += '<td>' + results[i].Full_Name + '</td>';
+                        html += '<td>' + results[i].Commission_Percentage + '%</td>';
+                        html += '<td>' + results[i].Phone + '</td>';
+                        html += '<td>' + results[i].Email + '</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
+
+
+        /* обработчик кнопки button_base_AllApartments */
+        //Apartments (Apartment_ID, Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price)
+        document.getElementById('button_base_AllApartments').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'base_query_AllApartments.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = '<table border="1">';
+                    var html = '<table border="1">';
+                    html += '<tr><th>ID Квартиры</th><th>Название улицы</th><th>Номер дома</th><th>Номер квартиры</th><th>Этаж</th><th>Площадь квартиры</th><th>Количество комнат</th><th>Цена квартиры</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Apartment_ID + '</td>';
+                        html += '<td>ул. ' + results[i].Street + '</td>';
+                        html += '<td>' + results[i].House_Number + '</td>';
+                        html += '<td>' + results[i].Apartment_Number + '</td>';
+                        html += '<td>' + results[i].Floor + '</td>';
+                        html += '<td>' + results[i].Area + '</td>';
+                        html += '<td>' + results[i].Rooms_Count + '</td>';
+                        html += '<td>' + results[i].Price + '₽</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
+
+
+        /* обработчик кнопки button_base_AllBuyers */
+        //Buyers (Buyer_ID, Full_Name, Budget, Preferences, Phone, Email, Passport_Data)
+        document.getElementById('button_base_AllBuyers').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'base_query_AllBuyers.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = '<table border="1">';
+                    html += '<tr><th>ID Покупателя</th><th>ФИО</th><th>Бюджет</th><th>Пожелания</th><th>Телефон</th><th>Электронная почта</th><th>Паспортные данные</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Buyer_ID + '</td>';
+                        html += '<td>' + results[i].Full_Name + '</td>';
+                        html += '<td>' + results[i].Budget + '₽</td>';
+                        html += '<td>' + results[i].Preferences + '</td>';
+                        html += '<td>' + results[i].Phone + '</td>';
+                        html += '<td>' + results[i].Email + '</td>';
+                        html += '<td>' + results[i].Passport_Data + '</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
+
+        /* обработчик кнопки button_base_AllDeals */
+        //Deals (Deal_ID, Deal_Date, Deal_Price, Apartment_ID, Buyer_ID, Realtor_ID)
+        document.getElementById('button_base_AllDeals').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'base_query_AllDeals.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = '<table border="1">';
+                    html += '<tr><th>ID Сделки</th><th>Дата сделки</th><th>Цена сделки</th><th>ID Квартиры</th><th>ID Покупателя</th><th>ID Риэлтора</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Deal_ID + '</td>';
+                        html += '<td>' + results[i].Deal_Date + '</td>';
+                        html += '<td>' + results[i].Deal_Price + '₽</td>';
+                        html += '<td>' + results[i].Apartment_ID + '</td>';
+                        html += '<td>' + results[i].Buyer_ID + '</td>';
+                        html += '<td>' + results[i].Realtor_ID + '</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
+
+
+
 
         /* обработчик кнопки button_specific_select_1 */
         //Apartments (Apartment_ID, Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price)
@@ -305,7 +436,7 @@
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
                     var html = '<table border="1">';
-                    html += '<tr><th>ID риэлтора</th><th>ФИО</th><th>Процент вознаграждения</th><th>Телефон</th><th>Электронная почта</th></tr>';
+                    html += '<tr><th>ID Риэлтора</th><th>ФИО</th><th>Процент вознаграждения</th><th>Телефон</th><th>Электронная почта</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
                         html += '<td>' + results[i].Realtor_ID + '</td>';
