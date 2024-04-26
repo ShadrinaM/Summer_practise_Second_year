@@ -206,7 +206,7 @@
                 </div>
             </div>
             <div class="output-container">
-                <div class="output"></div>
+                <div id="results"></div>
             </div>
         </div>
     </div>
@@ -262,6 +262,7 @@
         });
 
         // добавляем обработчик события нажатия на кнопку "Выполнить запрос 1"
+        /*
         document.getElementById('button_select_1').addEventListener('click', function () {
             // отправляем AJAX-запрос на сервер
             var xhr = new XMLHttpRequest();
@@ -277,7 +278,36 @@
             };
             xhr.send();
         });
-
+        */
+        //Apartments (Apartment_ID, Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price)
+        document.getElementById('button_select_1').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'query_1.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = '<table border="1">';
+                    html += '<tr><th>ID Квартиры</th><th>Название улицы</th><th>Номер дома</th><th>Номер квартиры</th><th>Этаж</th><th>Площадь квартиры</th><th>Количество комнат</th><th>Цена квартиры</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Apartment_ID + '</td>';
+                        html += '<td>ул. ' + results[i].Street + '</td>';
+                        html += '<td>' + results[i].House_Number + '</td>';
+                        html += '<td>' + results[i].Apartment_Number + '</td>';
+                        html += '<td>' + results[i].Floor + '</td>';
+                        html += '<td>' + results[i].Area + '</td>';
+                        html += '<td>' + results[i].Rooms_Count + '</td>';
+                        html += '<td>' + results[i].Price + '₽</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
     </script>
 </body>
 
