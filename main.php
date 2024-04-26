@@ -496,8 +496,30 @@
             xhr.send();
         });
 
-
-        /* обработчик кнопки button_specific_select_3 */
+        /* обработчик кнопки button_specific_select_7 */
+        document.getElementById('button_specific_select_7').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'specific_query_7.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = cssTable + '<table border="1">';
+                    html += '<tr><th>Количество комнат</th><th>Средняя площадь квартиры</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Rooms_Count + '</td>';
+                        html += '<td> ' + results[i].Average_Area + '</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
+        /* обработчик кнопки button_specific_select_8 */
         document.getElementById('button_specific_select_8').addEventListener('click', function () {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'specific_query_8.php', true);
