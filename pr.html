@@ -10,6 +10,145 @@
 <body>
     <button id="myButton">Нажми меня</button>
     <div id="results"></div>
+    <style>
+        * {
+            background-color: rgb(5, 12, 51);
+            color: rgb(238, 235, 211);
+        }
+
+        table {
+            margin: 20px;
+            border: 1px solid;
+        }
+
+        table th,
+        table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid;
+        }
+
+        
+    </style>
+    <table>
+        <tbody>
+            <thead>
+                <tr>
+                    <th>ID Сделки</th>
+                    <th>Дата сделки</th>
+                    <th>Цена сделки</th>
+                    <th>ID Квартиры</th>
+                    <th>ID Покупателя</th>
+                    <th>ID Риэлтора</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td>12342</td>
+                <td>2022-01-01</td>
+                <td>12000000.00₽</td>
+                <td>2001</td>
+                <td>3001</td>
+                <td>1005</td>
+            </tr>
+            <tr>
+                <td>14570</td>
+                <td>2022-01-10</td>
+                <td>1000000.00₽</td>
+                <td>2010</td>
+                <td>3010</td>
+                <td>1010</td>
+            </tr>
+            <tr>
+                <td>23458</td>
+                <td>2022-01-08</td>
+                <td>1500000.00₽</td>
+                <td>2008</td>
+                <td>3003</td>
+                <td>1008</td>
+            </tr>
+            <tr>
+                <td>32545</td>
+                <td>2022-01-03</td>
+                <td>1400000.00₽</td>
+                <td>2003</td>
+                <td>3003</td>
+                <td>1003</td>
+            </tr>
+            <tr>
+                <td>48678</td>
+                <td>2022-01-04</td>
+                <td>1100000.00₽</td>
+                <td>2004</td>
+                <td>3004</td>
+                <td>1004</td>
+            </tr>
+            <tr>
+                <td>56521</td>
+                <td>2022-01-01</td>
+                <td>1200000.00₽</td>
+                <td>2001</td>
+                <td>3001</td>
+                <td>1001</td>
+            </tr>
+            <tr>
+                <td>64345</td>
+                <td>2022-01-06</td>
+                <td>1300000.00₽</td>
+                <td>2004</td>
+                <td>3006</td>
+                <td>1006</td>
+            </tr>
+            <tr>
+                <td>67575</td>
+                <td>2022-01-05</td>
+                <td>1600000.00₽</td>
+                <td>2005</td>
+                <td>3005</td>
+                <td>1005</td>
+            </tr>
+            <tr>
+                <td>70535</td>
+                <td>2022-01-07</td>
+                <td>1800000.00₽</td>
+                <td>2007</td>
+                <td>3007</td>
+                <td>1007</td>
+            </tr>
+            <tr>
+                <td>89792</td>
+                <td>2022-01-02</td>
+                <td>950000.00₽</td>
+                <td>2001</td>
+                <td>3002</td>
+                <td>1002</td>
+            </tr>
+            <tr>
+                <td>96543</td>
+                <td>2022-01-09</td>
+                <td>800000.00₽</td>
+                <td>2003</td>
+                <td>3009</td>
+                <td>1009</td>
+            </tr>
+            <tr>
+                <td>96544</td>
+                <td>2022-04-10</td>
+                <td>2000000.00₽</td>
+                <td>2010</td>
+                <td>3011</td>
+                <td>1010</td>
+            </tr>
+            <tr>
+                <td>96545</td>
+                <td>2024-04-13</td>
+                <td>4000000.00₽</td>
+                <td>2010</td>
+                <td>3004</td>
+                <td>1008</td>
+            </tr>
+        </tbody>
+    </table>
     <script>
         document.getElementById('myButton').addEventListener('click', function () {
             var xhr = new XMLHttpRequest();

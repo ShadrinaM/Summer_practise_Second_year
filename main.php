@@ -272,33 +272,15 @@
         var cssTable = `
         <style>
         table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid rgb(0, 36, 59);
+            margin: 20px;
+            border: 1px solid;
         }
 
         table th,
         table td {
             padding: 15px;
-            text-align: left;
-            border: 1px solid rgb(0, 36, 59);
-        }
-
-        thead {
-            background-color: rgb(148, 210, 229);
-            color: white;
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: rgb(253, 253, 253);
-        }
-
-        tbody tr:nth-child(odd) {
-            background-color: rgb(148, 210, 229);
-        }
-
-        tbody tr:hover {
-            background-color: rgb(102, 179, 204);
+            text-align: center;
+            border: 1px solid;
         }
         </style>
         `;
@@ -338,8 +320,7 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var html = '<table border="1">';
-                    var html = '<table border="1">';
+                    var html = cssTable + '<table border="1">';
                     html += '<tr><th>ID Квартиры</th><th>Название улицы</th><th>Номер дома</th><th>Номер квартиры</th><th>Этаж</th><th>Площадь квартиры</th><th>Количество комнат</th><th>Цена квартиры</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
@@ -369,7 +350,7 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var html = '<table border="1">';
+                    var html = cssTable + '<table border="1">';
                     html += '<tr><th>ID Покупателя</th><th>ФИО</th><th>Бюджет</th><th>Пожелания</th><th>Телефон</th><th>Электронная почта</th><th>Паспортные данные</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
@@ -398,7 +379,7 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var html = '<table border="1">';
+                    var html = cssTable + '<table border="1">';
                     html += '<tr><th>ID Сделки</th><th>Дата сделки</th><th>Цена сделки</th><th>ID Квартиры</th><th>ID Покупателя</th><th>ID Риэлтора</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
@@ -430,7 +411,7 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var html = '<table border="1">';
+                    var html = cssTable + '<table border="1">';
                     html += '<tr><th>ID Квартиры</th><th>Название улицы</th><th>Номер дома</th><th>Номер квартиры</th><th>Этаж</th><th>Площадь квартиры</th><th>Количество комнат</th><th>Цена квартиры</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
@@ -460,7 +441,7 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var html = '<table border="1">';
+                    var html = cssTable + '<table border="1">';
                     html += '<tr><th>ID Риэлтора</th><th>ФИО</th><th>Процент вознаграждения</th><th>Телефон</th><th>Электронная почта</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
@@ -487,7 +468,7 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var html = '<table border="1">';
+                    var html = cssTable + '<table border="1">';
                     html += '<tr><th>ID Квартиры</th><th>Название улицы</th><th>Номер дома</th><th>Номер квартиры</th><th>Этаж</th><th>Площадь квартиры</th><th>Количество комнат</th><th>Цена квартиры</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
