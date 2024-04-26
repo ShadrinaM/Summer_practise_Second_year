@@ -210,7 +210,7 @@
                     <button class="button_select" id="button_specific_select_8"> Выполнить запрос 8</button>
                 </div>
             </div>
-            <div class="output-container">
+            <div class="output-container" style="padding: 15px;">
                 <div id="results"></div>
             </div>
         </div>
@@ -272,7 +272,6 @@
         var cssTable = `
         <style>
         table {
-            padding: 15px;
             border: 1px solid;
         }
         table th,
