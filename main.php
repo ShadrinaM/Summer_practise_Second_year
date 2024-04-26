@@ -523,8 +523,6 @@
             };
             xhr.send();
         });
-
-
         /* обработчик кнопки button_specific_select_5 */
         document.getElementById('button_specific_select_5').addEventListener('click', function () {
             var minAreaInput = document.getElementById('minAreaInput').value;
