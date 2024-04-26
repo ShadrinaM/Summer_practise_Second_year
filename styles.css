@@ -254,7 +254,7 @@ body.dark-theme .output-container {
 
 
 .Query {
-    margin: 10px;
+    margin: 10px, 10px, 0px, 10px;
     background-color: rgb(148, 210, 229);
     border-radius: 5px;
     border: 1px solid rgb(17, 51, 81);
