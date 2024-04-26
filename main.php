@@ -270,6 +270,7 @@
 
 
         var cssTable = `
+        <style>
         table {
             width: 100%;
             border-collapse: collapse;
@@ -299,6 +300,7 @@
         tbody tr:hover {
             background-color: rgb(102, 179, 204);
         }
+        </style>
         `;
 
         /* обработчик кнопки button_base_AllRealtors */
@@ -309,7 +311,7 @@
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
-                    var html = cssTable+'<table border="1">';
+                    var html = cssTable + '<table border="1">';
                     html += '<tr><th>ID Риэлтора</th><th>ФИО</th><th>Процент вознаграждения</th><th>Телефон</th><th>Электронная почта</th></tr>';
                     for (var i = 0; i < results.length; i++) {
                         html += '<tr>';
