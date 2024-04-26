@@ -495,6 +495,35 @@
             };
             xhr.send();
         });
+
+
+        /* обработчик кнопки button_specific_select_3 */
+        document.getElementById('button_specific_select_8').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'specific_query_8.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = cssTable + '<table border="1">';
+                    html += '<tr><th>Площадь квартиры</th><th>Мин.количество комнат</th><th>Макс.количество комнат</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Area + '</td>';
+                        html += '<td> ' + results[i].Min_Rooms + '</td>';
+                        html += '<td>' + results[i].Max_Rooms + '</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
+
+
+
     </script>
 </body>
 
