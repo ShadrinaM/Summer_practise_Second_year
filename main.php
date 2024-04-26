@@ -132,20 +132,25 @@
     <div id="dbQueries" class="content hidden">
         <div class="queries-container">
             <div class="queryDescriptions">
+                <div class="title_queries">Базовые запросы к базе данных:</div>
+                <button class="button_select" id="button_base_AllRealtors"> Вывести всех риэлторов</button>
+                <button class="button_select" id="button_base_AllApartments"> Вывести все квартиры</button>
+                <button class="button_select" id="button_base_AllBuyers"> Вывести всех покупателей</button>
+                <button class="button_select" id="button_base_AllDeals"> Вывести все сделки</button>
                 <div class="title_queries">Шаблонные запросы к базе данных:</div>
                 <div class="Query">
                     <div class="query_name">
                         (1) Выбирает из таблицы Apartments (КВАРТИРЫ) информацию о 3-комнатных квартирах, расположенных
                         на улице "Садовая"
                     </div>
-                    <button class="button_select" id="button_select_1"> Выполнить запрос 1</button>
+                    <button class="button_select" id="button_specific_select_1"> Выполнить запрос 1</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
                         (2)Выбирает из таблицы Realtors (РИЭЛТОРЫ) информацию о риэлторах, для которых фамилия
                         начинается с буквы "И" и процент вознаграждения больше 10
                     </div>
-                    <button onclick="executeQuery(2)" class="button_select"> Выполнить запрос 2</button>
+                    <button class="button_select" id="button_specific_select_2"> Выполнить запрос 2</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
@@ -212,7 +217,7 @@
     </div>
 
     <script>
-        /*открытие полей добавления записей в бд*/
+        /*отрытие только одной формы добавления записей в бд*/
         document.getElementById('modeSelect').addEventListener('change', function () {
             var selectedMode = this.value;
             var addRecordsDiv = document.getElementById('addRecords');
@@ -221,7 +226,7 @@
             addRecordsDiv.classList.toggle('hidden', selectedMode !== 'addRecords');
             dbQueriesDiv.classList.toggle('hidden', selectedMode !== 'dbQueries');
         });
-
+        /*открытие полей добавления записей в бд*/
         document.getElementById('toggleRealtorFormBtn').addEventListener('click', function () {
             document.getElementById('addRealtorForm').classList.toggle('hidden');
             document.getElementById('addApartmentForm').classList.add('hidden');
@@ -261,28 +266,11 @@
             }
         });
 
-        // добавляем обработчик события нажатия на кнопку "Выполнить запрос 1"
-        /*
-        document.getElementById('button_select_1').addEventListener('click', function () {
-            // отправляем AJAX-запрос на сервер
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'query.php', true);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // если запрос выполнен успешно, выводим результат в элемент с классом "output"
-                    var output = document.querySelector('.output');
-                    output.innerHTML = xhr.responseText;
-                } else {
-                    console.log('Request failed.  Returned status of ' + xhr.status);
-                }
-            };
-            xhr.send();
-        });
-        */
+        /*обработчик кнопки button_specific_select_1*/
         //Apartments (Apartment_ID, Street, House_Number, Apartment_Number, Floor, Area, Rooms_Count, Price)
-        document.getElementById('button_select_1').addEventListener('click', function () {
+        document.getElementById('button_specific_select_1').addEventListener('click', function () {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'query_1.php', true);
+            xhr.open('GET', 'specific_query_1.php', true);
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     var results = JSON.parse(xhr.responseText);
@@ -308,6 +296,34 @@
             };
             xhr.send();
         });
+        /*обработчик кнопки button_select_2*/
+        //Realtors (Realtor_ID, Full_Name, Commission_Percentage, Phone, Email)
+        document.getElementById('button_specific_select_2').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'specific_query_2.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var results = JSON.parse(xhr.responseText);
+                    var html = '<table border="1">';
+                    html += '<tr><th>ID риэлтора</th><th>ФИО</th><th>Процент вознаграждения</th><th>Телефон</th><th>Электронная почта</th></tr>';
+                    for (var i = 0; i < results.length; i++) {
+                        html += '<tr>';
+                        html += '<td>' + results[i].Realtor_ID + '</td>';
+                        html += '<td>' + results[i].Full_Name + '</td>';
+                        html += '<td>' + results[i].Commission_Percentage + '%</td>';
+                        html += '<td>' + results[i].Phone + '</td>';
+                        html += '<td>' + results[i].Email + '</td>';
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                    document.getElementById('results').innerHTML = html;
+                } else {
+                    console.log('Ошибка запроса. Статус ' + xhr.status);
+                }
+            };
+            xhr.send();
+        });
+
     </script>
 </body>
 
