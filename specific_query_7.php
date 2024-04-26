@@ -13,7 +13,7 @@ try {
         [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
 
-    $query = "SELECT Rooms_Count, AVG(Area) AS Average_Area
+    $query = "SELECT Rooms_Count, ROUND(AVG(Area),2) AS Average_Area
     FROM Apartments
     GROUP BY Rooms_Count;";
     $stmt = $db->query($query);

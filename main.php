@@ -556,8 +556,6 @@
             };
             xhr.send();
         });
-
-
         /* обработчик кнопки button_specific_select_6 */
         document.getElementById('button_specific_select_6').addEventListener('click', function () {
             var xhr = new XMLHttpRequest();
