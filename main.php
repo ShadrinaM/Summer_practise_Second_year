@@ -498,20 +498,33 @@
             $('#button_specific_select_4').click(function () {
                 var roomsCountInput = $('#roomsCountInput').val();
 
-                $.ajax({
-                    url: 'your_php_file.php', // Замените на имя вашего PHP-файла
-                    method: 'POST',
-                    data: { roomsCountInput: roomsCountInput },
-                    dataType: 'json',
-                    success: function (response) {
-                        console.log(response);
-                        // Здесь вы можете обработать ответ сервера и вывести результаты в div#results
-                        $('#results').html(JSON.stringify(response));
-                    },
-                    error: function (error) {
-                        console.log(error);
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'specific_query_4.php?roomsCountInput=' + roomsCountInput, true); // Замените на имя вашего PHP-файла
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        var results = JSON.parse(xhr.responseText);
+                        var cssTable = '<style>table, th, td {border: 1px solid black; border-collapse: collapse;}</style>';
+                        var html = cssTable + '<table>';
+                        html += '<tr><th>ID Квартиры</th><th>Название улицы</th><th>Номер дома</th><th>Номер квартиры</th><th>Этаж</th><th>Площадь квартиры</th><th>Количество комнат</th><th>Цена квартиры</th></tr>';
+                        for (var i = 0; i < results.length; i++) {
+                            html += '<tr>';
+                            html += '<td>' + results[i].Apartment_ID + '</td>';
+                            html += '<td>ул. ' + results[i].Street + '</td>';
+                            html += '<td>' + results[i].House_Number + '</td>';
+                            html += '<td>' + results[i].Apartment_Number + '</td>';
+                            html += '<td>' + results[i].Floor + '</td>';
+                            html += '<td>' + results[i].Area + '</td>';
+                            html += '<td>' + results[i].Rooms_Count + '</td>';
+                            html += '<td>' + results[i].Price + '₽</td>';
+                            html += '</tr>';
+                        }
+                        html += '</table>';
+                        document.getElementById('results').innerHTML = html;
+                    } else {
+                        console.log('Ошибка запроса. Статус ' + xhr.status);
                     }
-                });
+                };
+                xhr.send();
             });
         });
 
