@@ -235,6 +235,7 @@ body.dark-theme #button_base_AllApartments,
 body.dark-theme #button_base_AllBuyers,
 body.dark-theme #button_base_AllDeals {
     color: rgb(238, 235, 211);
+    background-color: rgb(63, 63, 63);
 }
 
 
