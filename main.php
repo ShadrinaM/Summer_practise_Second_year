@@ -157,7 +157,7 @@
                         (3) Выбирает из табоицы Apartments (КВАРТИРЫ) информацию об 1-комнатных квартирах, цена на
                         которые находится в диапазоне от 900000 до 1000000
                     </div>
-                    <button onclick="executeQuery(3)" class="button_select"> Выполнить запрос 3</button>
+                    <button class="button_select" id="button_specific_select_3"> Выполнить запрос 3</button>
                 </div>
                 <div class="Query">
                     <div class="query_name">
