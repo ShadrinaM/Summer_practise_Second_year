@@ -497,7 +497,6 @@
         //Выбирает из таблицы Apartments информацию о квартирах с некоторым количеством комнат. Конкретное количество комнат вводится при выполнении запроса.
         document.getElementById('button_specific_select_4').addEventListener('click', function () {
             var roomsCountInput = document.getElementById('roomsCountInput').value;
-            debugger
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'specific_query_4.php?roomsCountInput=' + roomsCountInput, true); // Замените на имя вашего PHP-файла
             xhr.onload = function () {
