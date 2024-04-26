@@ -260,13 +260,10 @@ body.dark-theme .output-container {
     border: 1px solid rgb(17, 51, 81);
 }
 
-#results {
+.output-container {
     max-height: 300px;
-    /* максимальная высота блока */
     overflow-y: auto;
-    /* прокрутка по вертикали */
     padding: 10px;
-    /* отступы вокруг содержимого */
 }
 
 
