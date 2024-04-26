@@ -210,7 +210,8 @@
                     <button class="button_select" id="button_specific_select_8"> Выполнить запрос 8</button>
                 </div>
             </div>
-            <div class="output-container" style="padding: 15px; overflow-y: auto; max-height: calc(100vh - 132px); padding-right: 15px;">
+            <div class="output-container"
+                style="padding: 15px; overflow-y: auto; max-height: calc(100vh - 132px); padding-right: 15px;">
                 <div id="results"></div>
             </div>
         </div>
@@ -490,6 +491,31 @@
             };
             xhr.send();
         });
+
+
+
+        $(document).ready(function () {
+            $('#button_specific_select_4').click(function () {
+                var roomsCountInput = $('#roomsCountInput').val();
+
+                $.ajax({
+                    url: 'your_php_file.php', // Замените на имя вашего PHP-файла
+                    method: 'POST',
+                    data: { roomsCountInput: roomsCountInput },
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                        // Здесь вы можете обработать ответ сервера и вывести результаты в div#results
+                        $('#results').html(JSON.stringify(response));
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+
+
 
         /* обработчик кнопки button_specific_select_6 */
         document.getElementById('button_specific_select_6').addEventListener('click', function () {
