@@ -113,33 +113,33 @@ CREATE TABLE Realtors (
 
 CREATE TABLE Apartments (
     Apartment_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Street VARCHAR(100),
-    House_Number INT,
-    Apartment_Number INT,
-    Floor INT,
-    Area DECIMAL(10,2),
-    Rooms_Count INT,
-    Price DECIMAL(10,2)
+    Street VARCHAR(100) NOT NULL,
+    House_Number INT NOT NULL,
+    Apartment_Number INT NOT NULL,
+    Floor INT NOT NULL,
+    Area DECIMAL(10,2) NOT NULL,
+    Rooms_Count INT NOT NULL,
+    Price DECIMAL(10,2) NOT NULL
 );
 
 CREATE TABLE Buyers (
     Buyer_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Full_Name VARCHAR(100),
-    Budget DECIMAL(10,2),
-    Preferences VARCHAR(200),
-    Phone VARCHAR(20),
-    Email VARCHAR(100),
-    Passport_Data VARCHAR(100),
+    Full_Name VARCHAR(100) NOT NULL,
+    Budget DECIMAL(10,2) NOT NULL,
+    Preferences VARCHAR(200) NOT NULL,
+    Phone VARCHAR(20) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Passport_Data VARCHAR(100) NOT NULL,
     CONSTRAINT CHECK_PHONE_Buyers CHECK (LENGTH(Phone) BETWEEN 12 AND 15 AND SUBSTR(Phone, 1, 1) = '+')
 );
 
 CREATE TABLE Deals (
     Deal_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Deal_Date DATE,
-    Deal_Price DECIMAL(10,2),
-    Apartment_ID INT,
-    Buyer_ID INT,
-    Realtor_ID INT,
+    Deal_Date DATE NOT NULL,
+    Deal_Price DECIMAL(10,2) NOT NULL,
+    Apartment_ID INT NOT NULL,
+    Buyer_ID INT NOT NULL,
+    Realtor_ID INT NOT NULL,
     CONSTRAINT Apartment_ID_FK FOREIGN KEY (Apartment_ID) REFERENCES Apartments(Apartment_ID),
     CONSTRAINT Buyer_ID_FK FOREIGN KEY (Buyer_ID) REFERENCES Buyers(Buyer_ID),
     CONSTRAINT Realtor_ID_FK FOREIGN KEY (Realtor_ID) REFERENCES Realtors(Realtor_ID)
