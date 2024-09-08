@@ -34,10 +34,15 @@ git clone https://github.com/ShadrinaM/happy-house.git
 ## Комментарии по назначению файлов репозитория
 
 Файл styles.css содержит стили оформления. 
+
 Файл index.php обрабатывает формы сайта. 
+
 Файлы base_query_AllRealtors.php, base_query_AllApartments.php, base_query_AllBuyers.php и base_query_AllDeals.php обрабатывают запросы для отображения данных таблиц целиком.
+
 Файлы specific_query_1.php, specific_query_2.php, specific_query_3.php, specific_query_4.php, specific_query_5.php, specific_query_6.php, specific_query_7.php, specific_query_8.php обрабатывают запросы, описанные в индивидуальном задании.
+
 Файл letnyaya_praktika .sql содержит код создания и заполнения таблиц как для тестовой версии sqldeveloper так и для основной версии созданной на учебном сервере с помощью MySql.
+
 Файл "Отчёт о летней практике Шадрина Марина Михайловна 24гр" содержит в себе полный отчёт о проделанной работе.
 
 ## Автор
